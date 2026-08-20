@@ -2417,8 +2417,6 @@ body {
 .project-header h1 span {
     background: linear-gradient(90deg, #8b5cf6, #ec4899);
 
-    -webkit-background-clip: text;
-
     -webkit-text-fill-color: transparent;
 }
 
