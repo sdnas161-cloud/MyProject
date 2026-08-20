@@ -4,19 +4,1015 @@
 <head>
 
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Task Management System | Sandhiya P</title>
 
-    <!-- Bootstrap CSS -->
+    <!-- =====================================================
+         BOOTSTRAP
+    ====================================================== -->
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Bootstrap Icons -->
+    <!-- =====================================================
+         BOOTSTRAP ICONS
+    ====================================================== -->
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="style.css">
+    <!-- =====================================================
+         GOOGLE FONT
+    ====================================================== -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+
+    <!-- =====================================================
+         CUSTOM CSS
+    ====================================================== -->
+
+    <style>
+        /* =====================================================
+           ROOT
+        ====================================================== */
+
+        :root {
+
+            --bg: #050816;
+            --bg-soft: #0a1020;
+            --card: #0d1528;
+            --card-hover: #111c33;
+
+            --primary: #22d3ee;
+            --secondary: #8b5cf6;
+            --blue: #3b82f6;
+
+            --white: #ffffff;
+            --text: #e8eef7;
+            --muted: #94a3b8;
+
+            --border: rgba(255, 255, 255, 0.09);
+
+            --shadow:
+                0 25px 70px rgba(0, 0, 0, 0.28);
+
+            --gradient:
+                linear-gradient(135deg,
+                    var(--primary),
+                    var(--secondary));
+        }
+
+
+        /* =====================================================
+           RESET
+        ====================================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+        body {
+
+            font-family: "Poppins", sans-serif;
+
+            color: var(--text);
+
+            background:
+
+                radial-gradient(circle at 10% 10%,
+                    rgba(34, 211, 238, 0.09),
+                    transparent 28%),
+
+                radial-gradient(circle at 90% 15%,
+                    rgba(139, 92, 246, 0.11),
+                    transparent 30%),
+
+                var(--bg);
+
+            min-height: 100vh;
+
+            padding-top: 76px;
+        }
+
+
+        a {
+            text-decoration: none;
+        }
+
+
+        /* =====================================================
+           NAVBAR
+        ====================================================== */
+
+        .navbar {
+
+            min-height: 76px;
+
+            background:
+                rgba(5, 8, 22, 0.88) !important;
+
+            backdrop-filter: blur(18px);
+
+            border-bottom:
+                1px solid var(--border);
+
+        }
+
+
+        .navbar-brand {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            color: var(--white) !important;
+
+            font-size: 1rem;
+
+        }
+
+
+        .logo {
+
+            width: 40px;
+            height: 40px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 12px;
+
+            background: var(--gradient);
+
+            color: white;
+
+            font-weight: 800;
+
+            box-shadow:
+                0 10px 30px rgba(34, 211, 238, 0.18);
+
+        }
+
+
+        .navbar-nav {
+
+            gap: 5px;
+
+        }
+
+
+        .nav-link {
+
+            color: #aebbd0 !important;
+
+            font-size: 0.84rem;
+
+            font-weight: 500;
+
+            padding: 9px 14px !important;
+
+            border-radius: 9px;
+
+            transition: 0.25s ease;
+
+        }
+
+
+        .nav-link:hover,
+        .nav-link.active {
+
+            color: white !important;
+
+            background:
+                rgba(255, 255, 255, 0.07);
+
+        }
+
+
+        .navbar-toggler {
+
+            border:
+                1px solid rgba(255, 255, 255, 0.15);
+
+        }
+
+
+        /* =====================================================
+           MAIN SECTION
+        ====================================================== */
+
+        .project-section {
+
+            padding:
+                65px 0 100px;
+
+        }
+
+
+        .container {
+
+            max-width: 1180px;
+
+        }
+
+
+        /* =====================================================
+           BACK BUTTON
+        ====================================================== */
+
+        .back-btn {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 9px;
+
+            padding: 10px 16px;
+
+            color: #cbd5e1;
+
+            border:
+                1px solid var(--border);
+
+            border-radius: 10px;
+
+            background:
+                rgba(255, 255, 255, 0.035);
+
+            font-size: 0.78rem;
+
+            font-weight: 600;
+
+            transition: 0.25s ease;
+
+        }
+
+
+        .back-btn:hover {
+
+            color: white;
+
+            transform:
+                translateX(-4px);
+
+            border-color:
+                rgba(34, 211, 238, 0.35);
+
+            background:
+                rgba(34, 211, 238, 0.07);
+
+        }
+
+
+        /* =====================================================
+           HEADER
+        ====================================================== */
+
+        .project-header {
+
+            max-width: 800px;
+
+            margin:
+                42px auto 55px;
+
+            text-align: center;
+
+        }
+
+
+        .project-label {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+            padding: 7px 14px;
+
+            margin-bottom: 17px;
+
+            border-radius: 50px;
+
+            color: var(--primary);
+
+            background:
+                rgba(34, 211, 238, 0.07);
+
+            border:
+                1px solid rgba(34, 211, 238, 0.16);
+
+            font-size: 0.68rem;
+
+            font-weight: 700;
+
+            letter-spacing: 2px;
+
+        }
+
+
+        .project-label i {
+
+            font-size: 0.75rem;
+
+        }
+
+
+        .project-header h1 {
+
+            font-size:
+                clamp(2.3rem, 5vw, 3.8rem);
+
+            line-height: 1.12;
+
+            font-weight: 800;
+
+            margin-bottom: 18px;
+
+            letter-spacing: -1.2px;
+
+        }
+
+
+        .project-header h1 span {
+
+            background:
+                var(--gradient);
+
+            -webkit-background-clip: text;
+
+            background-clip: text;
+
+            color: transparent;
+
+        }
+
+
+        .title-line {
+
+            width: 65px;
+
+            height: 4px;
+
+            margin:
+                0 auto 22px;
+
+            border-radius: 50px;
+
+            background:
+                var(--gradient);
+
+        }
+
+
+        .project-header p.description {
+
+            max-width: 690px;
+
+            margin: auto;
+
+            color: var(--muted);
+
+            font-size: 0.9rem;
+
+            line-height: 1.9;
+
+        }
+
+
+        /* =====================================================
+           CONTENT GRID
+        ====================================================== */
+
+        .content-card {
+
+            height: 100%;
+
+            padding: 30px;
+
+            border:
+                1px solid var(--border);
+
+            border-radius: 20px;
+
+            background:
+                linear-gradient(180deg,
+                    rgba(15, 27, 47, 0.96),
+                    rgba(8, 15, 29, 0.98));
+
+            box-shadow:
+                var(--shadow);
+
+            transition:
+                border-color 0.25s ease,
+                transform 0.25s ease;
+
+        }
+
+
+        .content-card:hover {
+
+            border-color:
+                rgba(34, 211, 238, 0.18);
+
+        }
+
+
+        /* =====================================================
+           CARD HEADING
+        ====================================================== */
+
+        .card-heading {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 12px;
+
+            margin-bottom: 22px;
+
+        }
+
+
+        .heading-icon {
+
+            width: 42px;
+
+            height: 42px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            flex-shrink: 0;
+
+            border-radius: 11px;
+
+            color: var(--primary);
+
+            background:
+                rgba(34, 211, 238, 0.08);
+
+            border:
+                1px solid rgba(34, 211, 238, 0.14);
+
+            font-size: 1.15rem;
+
+        }
+
+
+        .card-heading h2,
+        .card-heading h3 {
+
+            margin: 0;
+
+            font-size: 1.15rem;
+
+            font-weight: 700;
+
+        }
+
+
+        .overview-text {
+
+            color: var(--muted);
+
+            font-size: 0.86rem;
+
+            line-height: 1.9;
+
+            margin-bottom: 15px;
+
+        }
+
+
+        .overview-text:last-child {
+
+            margin-bottom: 0;
+
+        }
+
+
+        /* =====================================================
+           FEATURE CARDS
+        ====================================================== */
+
+        .feature-box {
+
+            height: 100%;
+
+            padding: 21px;
+
+            border-radius: 15px;
+
+            border:
+                1px solid rgba(255, 255, 255, 0.07);
+
+            background:
+                rgba(255, 255, 255, 0.025);
+
+            transition:
+                0.25s ease;
+
+        }
+
+
+        .feature-box:hover {
+
+            transform:
+                translateY(-5px);
+
+            border-color:
+                rgba(34, 211, 238, 0.25);
+
+            background:
+                rgba(34, 211, 238, 0.045);
+
+        }
+
+
+        .feature-icon {
+
+            width: 44px;
+
+            height: 44px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            border-radius: 11px;
+
+            color: var(--primary);
+
+            background:
+                rgba(34, 211, 238, 0.08);
+
+            border:
+                1px solid rgba(34, 211, 238, 0.14);
+
+            font-size: 1.2rem;
+
+            margin-bottom: 15px;
+
+        }
+
+
+        .feature-box h5 {
+
+            font-size: 0.9rem;
+
+            font-weight: 700;
+
+            margin-bottom: 8px;
+
+        }
+
+
+        .feature-box p {
+
+            color: var(--muted);
+
+            font-size: 0.76rem;
+
+            line-height: 1.7;
+
+            margin: 0;
+
+        }
+
+
+        /* =====================================================
+           TECHNOLOGY TAGS
+        ====================================================== */
+
+        .tech-tags {
+
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 9px;
+
+        }
+
+
+        .tech-tags span {
+
+            padding:
+                8px 13px;
+
+            border-radius: 8px;
+
+            color: #dbe7f4;
+
+            background:
+                rgba(34, 211, 238, 0.045);
+
+            border:
+                1px solid rgba(34, 211, 238, 0.14);
+
+            font-size: 0.73rem;
+
+            font-weight: 600;
+
+            transition: 0.2s ease;
+
+        }
+
+
+        .tech-tags span:hover {
+
+            color: white;
+
+            transform:
+                translateY(-2px);
+
+            border-color:
+                rgba(34, 211, 238, 0.3);
+
+        }
+
+
+        /* =====================================================
+           PROJECT INFORMATION
+        ====================================================== */
+
+        .info-card {
+
+            position: sticky;
+
+            top: 100px;
+
+        }
+
+
+        .info-list {
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 10px;
+
+        }
+
+
+        .info-item {
+
+            padding:
+                13px 14px;
+
+            border-radius: 11px;
+
+            background:
+                rgba(255, 255, 255, 0.035);
+
+            border:
+                1px solid rgba(255, 255, 255, 0.06);
+
+        }
+
+
+        .info-item small {
+
+            display: block;
+
+            color: #7f8da2;
+
+            font-size: 0.67rem;
+
+            margin-bottom: 4px;
+
+        }
+
+
+        .info-item strong {
+
+            display: block;
+
+            color: #edf4fb;
+
+            font-size: 0.79rem;
+
+            line-height: 1.5;
+
+            font-weight: 600;
+
+        }
+
+
+        .divider {
+
+            border: 0;
+
+            border-top:
+                1px solid var(--border);
+
+            margin:
+                22px 0;
+
+        }
+
+
+        /* =====================================================
+           BUTTONS
+        ====================================================== */
+
+        .action-btn {
+
+            min-height: 48px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 9px;
+
+            border-radius: 10px;
+
+            font-size: 0.79rem;
+
+            font-weight: 600;
+
+            transition:
+                0.25s ease;
+
+        }
+
+
+        .github-btn {
+
+            color: white;
+
+            border: none;
+
+            background:
+                linear-gradient(135deg,
+                    var(--blue),
+                    var(--secondary));
+
+        }
+
+
+        .github-btn:hover {
+
+            color: white;
+
+            transform:
+                translateY(-3px);
+
+            box-shadow:
+                0 15px 30px rgba(59, 130, 246, 0.2);
+
+        }
+
+
+        .demo-btn {
+
+            color: #d9e4f0;
+
+            border:
+                1px solid var(--border);
+
+            background:
+                rgba(255, 255, 255, 0.035);
+
+        }
+
+
+        .demo-btn:hover {
+
+            color: white;
+
+            transform:
+                translateY(-3px);
+
+            border-color:
+                rgba(34, 211, 238, 0.3);
+
+            background:
+                rgba(34, 211, 238, 0.06);
+
+        }
+
+
+        /* =====================================================
+           FOOTER
+        ====================================================== */
+
+        footer {
+
+            padding:
+                42px 0 25px;
+
+            background:
+                #030611;
+
+            border-top:
+                1px solid var(--border);
+
+        }
+
+
+        footer h5 {
+
+            font-size: 1rem;
+
+            font-weight: 700;
+
+            margin-bottom: 7px;
+
+        }
+
+
+        footer p {
+
+            color: var(--muted);
+
+            font-size: 0.8rem;
+
+        }
+
+
+        .footer-social {
+
+            display: flex;
+
+            justify-content: center;
+
+            gap: 10px;
+
+            margin:
+                18px 0;
+
+        }
+
+
+        .footer-social a {
+
+            width: 40px;
+
+            height: 40px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            border-radius: 10px;
+
+            color: #cbd5e1;
+
+            background:
+                rgba(255, 255, 255, 0.045);
+
+            border:
+                1px solid var(--border);
+
+            transition:
+                0.25s ease;
+
+        }
+
+
+        .footer-social a:hover {
+
+            color: white;
+
+            transform:
+                translateY(-3px);
+
+            background:
+                var(--gradient);
+
+        }
+
+
+        .copyright {
+
+            margin: 0;
+
+            font-size: 0.7rem;
+
+        }
+
+
+        /* =====================================================
+           RESPONSIVE
+        ====================================================== */
+
+        @media (max-width: 991.98px) {
+
+            .info-card {
+
+                position: static;
+
+            }
+
+        }
+
+
+        @media (max-width: 767.98px) {
+
+            body {
+
+                padding-top: 68px;
+
+            }
+
+
+            .navbar {
+
+                min-height: 68px;
+
+            }
+
+
+            .project-section {
+
+                padding:
+                    45px 0 70px;
+
+            }
+
+
+            .project-header {
+
+                margin:
+                    35px auto 40px;
+
+            }
+
+
+            .project-header h1 {
+
+                font-size: 2.35rem;
+
+            }
+
+
+            .content-card {
+
+                padding: 22px;
+
+                border-radius: 17px;
+
+            }
+
+
+            .feature-box {
+
+                padding: 18px;
+
+            }
+
+        }
+
+
+        @media (max-width: 400px) {
+
+            .project-header h1 {
+
+                font-size: 2rem;
+
+            }
+
+
+            .content-card {
+
+                padding: 19px;
+
+            }
+
+        }
+    </style>
 
 </head>
 
@@ -24,21 +1020,26 @@
 <body>
 
 
-    <!-- ================= NAVBAR ================= -->
+    <!-- =====================================================
+         NAVBAR
+    ====================================================== -->
 
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
 
         <div class="container">
 
+
             <a class="navbar-brand fw-bold" href="index.html">
 
                 <span class="logo">S</span>
-                Sandhiya P
+
+                <span>Sandhiya P</span>
 
             </a>
 
 
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu"
+                aria-controls="navbarMenu" aria-expanded="false" aria-label="Toggle navigation">
 
                 <span class="navbar-toggler-icon"></span>
 
@@ -49,34 +1050,49 @@
 
                 <ul class="navbar-nav ms-auto">
 
+
                     <li class="nav-item">
+
                         <a class="nav-link" href="index.html">
                             Home
                         </a>
+
                     </li>
 
+
                     <li class="nav-item">
+
                         <a class="nav-link" href="about.html">
                             About
                         </a>
+
                     </li>
 
+
                     <li class="nav-item">
+
                         <a class="nav-link" href="skills.html">
                             Skills
                         </a>
+
                     </li>
 
+
                     <li class="nav-item">
+
                         <a class="nav-link active" href="projects.html">
                             Projects
                         </a>
+
                     </li>
 
+
                     <li class="nav-item">
+
                         <a class="nav-link" href="contact.html">
                             Contact
                         </a>
+
                     </li>
 
                 </ul>
@@ -89,70 +1105,103 @@
 
 
 
-    <!-- ================= PROJECT DETAILS ================= -->
+    <!-- =====================================================
+         MAIN PROJECT SECTION
+    ====================================================== -->
 
-    <section class="project-details-section">
+    <main class="project-section">
 
         <div class="container">
 
+
             <!-- BACK BUTTON -->
 
-            <div class="mb-4">
+            <a href="projects.html" class="back-btn">
 
-                <a href="projects.html" class="btn btn-outline-light">
+                <i class="bi bi-arrow-left"></i>
 
-                    <i class="bi bi-arrow-left"></i>
-                    Back to Projects
+                Back to Projects
 
-                </a>
-
-            </div>
+            </a>
 
 
-            <!-- PROJECT HEADER -->
 
-            <div class="text-center mb-5">
+            <!-- =================================================
+                 PROJECT HEADER
+            ================================================== -->
 
-                <p class="small-title">
+            <header class="project-header">
+
+
+                <div class="project-label">
+
+                    <i class="bi bi-kanban"></i>
+
                     WEB APPLICATION
-                </p>
+
+                </div>
+
 
                 <h1>
-                    Task Management <span>System</span>
+
+                    Task Management
+                    <span>System</span>
+
                 </h1>
 
-                <p class="title-line"></p>
 
-                <p class="section-description">
+                <div class="title-line"></div>
+
+
+                <p class="description">
 
                     A web-based task management application
                     developed using Python and Django for
-                    managing employees, assigning tasks and
-                    tracking task status.
+                    managing employees, assigning tasks,
+                    and tracking task status.
 
                 </p>
 
-            </div>
+
+            </header>
 
 
 
-            <!-- ================= PROJECT OVERVIEW ================= -->
+            <!-- =================================================
+                 MAIN CONTENT
+            ================================================== -->
 
-            <div class="row g-4">
+            <div class="row g-4 align-items-start">
 
 
-                <!-- LEFT SIDE -->
+                <!-- =================================================
+                     LEFT COLUMN
+                ================================================= -->
 
                 <div class="col-lg-8">
 
-                    <div class="project-detail-card">
 
-                        <h2>
-                            <i class="bi bi-kanban"></i>
-                            Project Overview
-                        </h2>
+                    <!-- PROJECT OVERVIEW -->
 
-                        <p>
+                    <section class="content-card">
+
+
+                        <div class="card-heading">
+
+                            <div class="heading-icon">
+
+                                <i class="bi bi-kanban"></i>
+
+                            </div>
+
+                            <h2>
+                                Project Overview
+                            </h2>
+
+                        </div>
+
+
+                        <p class="overview-text">
 
                             The Task Management System is a
                             web application developed using
@@ -160,7 +1209,8 @@
 
                         </p>
 
-                        <p>
+
+                        <p class="overview-text">
 
                             The system allows administrators
                             to manage employees and assign
@@ -170,7 +1220,8 @@
 
                         </p>
 
-                        <p>
+
+                        <p class="overview-text">
 
                             The application provides a simple
                             and organized interface for
@@ -179,126 +1230,206 @@
 
                         </p>
 
-                    </div>
+
+                    </section>
 
 
 
-                    <!-- ================= FEATURES ================= -->
+                    <!-- =================================================
+                         FEATURES
+                    ================================================== -->
 
-                    <div class="project-detail-card mt-4">
+                    <section class="content-card mt-4">
 
-                        <h2>
-                            <i class="bi bi-check-circle"></i>
-                            Key Features
-                        </h2>
+
+                        <div class="card-heading">
+
+                            <div class="heading-icon">
+
+                                <i class="bi bi-check-circle"></i>
+
+                            </div>
+
+                            <h2>
+                                Key Features
+                            </h2>
+
+                        </div>
 
 
                         <div class="row g-3">
+
+
+                            <!-- FEATURE 1 -->
 
                             <div class="col-md-6">
 
                                 <div class="feature-box">
 
-                                    <i class="bi bi-people"></i>
+
+                                    <div class="feature-icon">
+
+                                        <i class="bi bi-people"></i>
+
+                                    </div>
+
 
                                     <h5>
                                         Employee Management
                                     </h5>
 
+
                                     <p>
+
                                         Add and manage employee
                                         information.
+
                                     </p>
+
 
                                 </div>
 
                             </div>
 
 
+
+                            <!-- FEATURE 2 -->
+
                             <div class="col-md-6">
 
                                 <div class="feature-box">
 
-                                    <i class="bi bi-list-task"></i>
+
+                                    <div class="feature-icon">
+
+                                        <i class="bi bi-list-task"></i>
+
+                                    </div>
+
 
                                     <h5>
                                         Task Assignment
                                     </h5>
 
+
                                     <p>
+
                                         Assign tasks to employees
                                         and manage task details.
+
                                     </p>
+
 
                                 </div>
 
                             </div>
 
 
+
+                            <!-- FEATURE 3 -->
+
                             <div class="col-md-6">
 
                                 <div class="feature-box">
 
-                                    <i class="bi bi-bar-chart"></i>
+
+                                    <div class="feature-icon">
+
+                                        <i class="bi bi-bar-chart"></i>
+
+                                    </div>
+
 
                                     <h5>
                                         Task Tracking
                                     </h5>
 
+
                                     <p>
+
                                         Track task progress and
                                         completion status.
+
                                     </p>
+
 
                                 </div>
 
                             </div>
 
+
+
+                            <!-- FEATURE 4 -->
 
                             <div class="col-md-6">
 
                                 <div class="feature-box">
 
-                                    <i class="bi bi-person-lock"></i>
+
+                                    <div class="feature-icon">
+
+                                        <i class="bi bi-person-lock"></i>
+
+                                    </div>
+
 
                                     <h5>
                                         User Management
                                     </h5>
 
+
                                     <p>
+
                                         Manage users and provide
                                         controlled access.
+
                                     </p>
+
 
                                 </div>
 
                             </div>
 
+
                         </div>
 
-                    </div>
+
+                    </section>
 
 
 
-                    <!-- ================= TECHNOLOGIES ================= -->
+                    <!-- =================================================
+                         TECHNOLOGIES
+                    ================================================== -->
 
-                    <div class="project-detail-card mt-4">
+                    <section class="content-card mt-4">
 
-                        <h2>
-                            <i class="bi bi-code-slash"></i>
-                            Technologies Used
-                        </h2>
+
+                        <div class="card-heading">
+
+                            <div class="heading-icon">
+
+                                <i class="bi bi-code-slash"></i>
+
+                            </div>
+
+                            <h2>
+                                Technologies Used
+                            </h2>
+
+                        </div>
 
 
                         <div class="tech-tags">
+
 
                             <span>Python</span>
 
                             <span>Django</span>
 
-                            <span>HTML</span>
+                            <span>HTML5</span>
 
-                            <span>CSS</span>
+                            <span>CSS3</span>
 
                             <span>Bootstrap</span>
 
@@ -306,106 +1437,171 @@
 
                             <span>SQL</span>
 
+
                         </div>
 
-                    </div>
+
+                    </section>
+
 
                 </div>
 
 
 
-                <!-- RIGHT SIDE -->
+                <!-- =================================================
+                     RIGHT COLUMN
+                ================================================== -->
 
                 <div class="col-lg-4">
 
-                    <div class="project-detail-card">
 
-                        <h3>
-                            Project Information
-                        </h3>
+                    <aside class="content-card info-card">
 
 
-                        <hr>
+                        <div class="card-heading">
+
+                            <div class="heading-icon">
+
+                                <i class="bi bi-info-circle"></i>
+
+                            </div>
+
+                            <h3>
+                                Project Information
+                            </h3>
+
+                        </div>
 
 
-                        <p>
-                            <strong>Project:</strong>
-                            Task Management System
-                        </p>
+                        <div class="info-list">
 
 
-                        <p>
-                            <strong>Category:</strong>
-                            Web Application
-                        </p>
+                            <div class="info-item">
+
+                                <small>
+                                    PROJECT
+                                </small>
+
+                                <strong>
+                                    Task Management System
+                                </strong>
+
+                            </div>
 
 
-                        <p>
-                            <strong>Backend:</strong>
-                            Python / Django
-                        </p>
+                            <div class="info-item">
+
+                                <small>
+                                    CATEGORY
+                                </small>
+
+                                <strong>
+                                    Web Application
+                                </strong>
+
+                            </div>
 
 
-                        <p>
-                            <strong>Frontend:</strong>
-                            HTML / CSS / Bootstrap
-                        </p>
+                            <div class="info-item">
+
+                                <small>
+                                    BACKEND
+                                </small>
+
+                                <strong>
+                                    Python / Django
+                                </strong>
+
+                            </div>
 
 
-                        <p>
-                            <strong>Database:</strong>
-                            SQL
-                        </p>
+                            <div class="info-item">
+
+                                <small>
+                                    FRONTEND
+                                </small>
+
+                                <strong>
+                                    HTML / CSS / Bootstrap
+                                </strong>
+
+                            </div>
 
 
-                        <hr>
+                            <div class="info-item">
+
+                                <small>
+                                    DATABASE
+                                </small>
+
+                                <strong>
+                                    MySQL
+                                </strong>
+
+                            </div>
 
 
-                        <!-- GITHUB -->
+                        </div>
 
-                        <a href="https://github.com/YOUR-USERNAME/task-management-system" target="_blank"
-                            rel="noopener noreferrer" class="btn btn-primary w-100 mb-3">
+
+                        <hr class="divider">
+
+
+                        <!-- GITHUB BUTTON -->
+
+                        <a href="http://127.0.0.1:8000/management/employee/" target="_blank" rel="noopener noreferrer"
+                            class="btn action-btn github-btn w-100 mb-3">
 
                             <i class="bi bi-github"></i>
 
                             View GitHub Code
+
+                            <i class="bi bi-arrow-up-right"></i>
 
                         </a>
 
 
                         <!-- LIVE DEMO -->
 
-                        <a href="https://your-task-management-live-url.com" target="_blank" rel="noopener noreferrer"
-                            class="btn btn-outline-light w-100">
+                        <a href="http://127.0.0.1:8000/management/employee/" class="btn action-btn demo-btn w-100">
 
-                            <i class="bi bi-box-arrow-up-right"></i>
+                            <i class="bi bi-globe2"></i>
 
                             View Live Demo
 
+                            <i class="bi bi-arrow-up-right"></i>
+
                         </a>
 
-                    </div>
+
+                    </aside>
+
 
                 </div>
 
 
             </div>
 
+
         </div>
 
-    </section>
+    </main>
 
 
 
-    <!-- ================= FOOTER ================= -->
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
 
     <footer>
 
         <div class="container text-center">
 
+
             <h5>
                 Sandhiya P
             </h5>
+
 
             <p>
                 Junior Full Stack Web Developer
@@ -414,30 +1610,34 @@
 
             <div class="footer-social">
 
-                <a href="https://github.com/YOUR-USERNAME" target="_blank">
+
+                <a href="https://github.com/YOUR-USERNAME" target="_blank" rel="noopener noreferrer"
+                    aria-label="GitHub">
 
                     <i class="bi bi-github"></i>
 
                 </a>
 
 
-                <a href="https://www.linkedin.com/in/YOUR-USERNAME/" target="_blank">
+                <a href="https://www.linkedin.com/in/YOUR-USERNAME/" target="_blank" rel="noopener noreferrer"
+                    aria-label="LinkedIn">
 
                     <i class="bi bi-linkedin"></i>
 
                 </a>
 
 
-                <a href="mailto:your-email@gmail.com">
+                <a href="mailto:your-email@gmail.com" aria-label="Email">
 
                     <i class="bi bi-envelope"></i>
 
                 </a>
 
+
             </div>
 
 
-            <hr>
+            <hr class="divider">
 
 
             <p class="copyright">
@@ -446,20 +1646,16 @@
 
             </p>
 
+
         </div>
 
     </footer>
 
 
 
-    <!-- Bootstrap JS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-
-
-    <!-- Bootstrap Icons -->
-
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-
+    <!-- =====================================================
+         BOOTSTRAP JS
+    ====================================================== -->
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
     </script>
