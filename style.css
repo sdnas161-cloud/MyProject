@@ -76,8 +76,6 @@ body {
     background: linear-gradient(90deg,
             #60a5fa,
             #a78bfa);
-
-    -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
@@ -3234,8 +3232,6 @@ body {
     background: linear-gradient(90deg,
             #7c72ff,
             #00d4ff);
-
-    -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
@@ -3361,8 +3357,6 @@ body {
     background: linear-gradient(135deg,
             #8c82ff,
             #00d4ff);
-
-    -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
