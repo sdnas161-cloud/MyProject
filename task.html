@@ -4,9 +4,16 @@
 <head>
 
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <meta name="description"
+        content="Task Management System developed by Sandhiya P using Python, Django, Bootstrap and SQL.">
+
+    <meta name="author" content="Sandhiya P">
+
     <title>Task Management System | Sandhiya P</title>
+
 
     <!-- =====================================================
          BOOTSTRAP
@@ -14,11 +21,13 @@
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
+
     <!-- =====================================================
          BOOTSTRAP ICONS
     ====================================================== -->
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
 
     <!-- =====================================================
          GOOGLE FONT
@@ -38,33 +47,40 @@
 
     <style>
         /* =====================================================
-           ROOT
+           ROOT VARIABLES
         ====================================================== */
 
         :root {
 
             --bg: #050816;
-            --bg-soft: #0a1020;
+
+            --bg-secondary: #080d1d;
+
             --card: #0d1528;
-            --card-hover: #111c33;
+
+            --card-light: #111c32;
 
             --primary: #22d3ee;
+
             --secondary: #8b5cf6;
+
             --blue: #3b82f6;
 
             --white: #ffffff;
+
             --text: #e8eef7;
+
             --muted: #94a3b8;
 
             --border: rgba(255, 255, 255, 0.09);
 
-            --shadow:
-                0 25px 70px rgba(0, 0, 0, 0.28);
-
             --gradient:
                 linear-gradient(135deg,
-                    var(--primary),
-                    var(--secondary));
+                    #22d3ee,
+                    #8b5cf6);
+
+            --shadow:
+                0 25px 70px rgba(0, 0, 0, 0.30);
         }
 
 
@@ -93,18 +109,20 @@
             background:
 
                 radial-gradient(circle at 10% 10%,
-                    rgba(34, 211, 238, 0.09),
-                    transparent 28%),
+                    rgba(34, 211, 238, 0.08),
+                    transparent 25%),
 
-                radial-gradient(circle at 90% 15%,
-                    rgba(139, 92, 246, 0.11),
-                    transparent 30%),
+                radial-gradient(circle at 90% 20%,
+                    rgba(139, 92, 246, 0.10),
+                    transparent 28%),
 
                 var(--bg);
 
             min-height: 100vh;
 
             padding-top: 76px;
+
+            overflow-x: hidden;
         }
 
 
@@ -144,17 +162,20 @@
 
             font-size: 1rem;
 
+            font-weight: 700;
         }
 
 
         .logo {
 
             width: 40px;
+
             height: 40px;
 
             display: flex;
 
             align-items: center;
+
             justify-content: center;
 
             border-radius: 12px;
@@ -167,14 +188,11 @@
 
             box-shadow:
                 0 10px 30px rgba(34, 211, 238, 0.18);
-
         }
 
 
         .navbar-nav {
-
             gap: 5px;
-
         }
 
 
@@ -191,7 +209,6 @@
             border-radius: 9px;
 
             transition: 0.25s ease;
-
         }
 
 
@@ -202,7 +219,6 @@
 
             background:
                 rgba(255, 255, 255, 0.07);
-
         }
 
 
@@ -210,26 +226,23 @@
 
             border:
                 1px solid rgba(255, 255, 255, 0.15);
-
         }
 
 
         /* =====================================================
-           MAIN SECTION
+           PROJECT SECTION
         ====================================================== */
 
         .project-section {
 
             padding:
                 65px 0 100px;
-
         }
 
 
         .container {
 
             max-width: 1180px;
-
         }
 
 
@@ -262,7 +275,6 @@
             font-weight: 600;
 
             transition: 0.25s ease;
-
         }
 
 
@@ -278,23 +290,21 @@
 
             background:
                 rgba(34, 211, 238, 0.07);
-
         }
 
 
         /* =====================================================
-           HEADER
+           PROJECT HERO
         ====================================================== */
 
         .project-header {
 
-            max-width: 800px;
+            max-width: 850px;
 
             margin:
-                42px auto 55px;
+                45px auto 55px;
 
             text-align: center;
-
         }
 
 
@@ -306,9 +316,9 @@
 
             gap: 8px;
 
-            padding: 7px 14px;
+            padding: 8px 15px;
 
-            margin-bottom: 17px;
+            margin-bottom: 18px;
 
             border-radius: 50px;
 
@@ -318,74 +328,61 @@
                 rgba(34, 211, 238, 0.07);
 
             border:
-                1px solid rgba(34, 211, 238, 0.16);
+                1px solid rgba(34, 211, 238, 0.17);
 
             font-size: 0.68rem;
 
             font-weight: 700;
 
             letter-spacing: 2px;
-
-        }
-
-
-        .project-label i {
-
-            font-size: 0.75rem;
-
         }
 
 
         .project-header h1 {
 
             font-size:
-                clamp(2.3rem, 5vw, 3.8rem);
+                clamp(2.4rem, 5vw, 4rem);
 
             line-height: 1.12;
 
             font-weight: 800;
 
+            letter-spacing: -1.5px;
+
             margin-bottom: 18px;
-
-            letter-spacing: -1.2px;
-
         }
 
 
         .project-header h1 span {
 
-            background:
-                var(--gradient);
+            background: var(--gradient);
 
             -webkit-background-clip: text;
 
             background-clip: text;
 
             color: transparent;
-
         }
 
 
         .title-line {
 
-            width: 65px;
+            width: 70px;
 
             height: 4px;
 
             margin:
-                0 auto 22px;
+                0 auto 23px;
 
             border-radius: 50px;
 
-            background:
-                var(--gradient);
-
+            background: var(--gradient);
         }
 
 
-        .project-header p.description {
+        .project-description {
 
-            max-width: 690px;
+            max-width: 720px;
 
             margin: auto;
 
@@ -394,12 +391,96 @@
             font-size: 0.9rem;
 
             line-height: 1.9;
-
         }
 
 
         /* =====================================================
-           CONTENT GRID
+           PROJECT STATS
+        ====================================================== */
+
+        .project-stats {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 15px;
+
+            margin:
+                35px auto 55px;
+
+            max-width: 850px;
+        }
+
+
+        .stat-card {
+
+            padding: 20px;
+
+            text-align: center;
+
+            border:
+                1px solid var(--border);
+
+            border-radius: 16px;
+
+            background:
+                rgba(255, 255, 255, 0.025);
+
+            transition: 0.25s ease;
+        }
+
+
+        .stat-card:hover {
+
+            transform:
+                translateY(-5px);
+
+            border-color:
+                rgba(34, 211, 238, 0.22);
+
+            background:
+                rgba(34, 211, 238, 0.04);
+        }
+
+
+        .stat-card i {
+
+            display: block;
+
+            color: var(--primary);
+
+            font-size: 1.35rem;
+
+            margin-bottom: 8px;
+        }
+
+
+        .stat-card strong {
+
+            display: block;
+
+            color: white;
+
+            font-size: 0.82rem;
+        }
+
+
+        .stat-card span {
+
+            display: block;
+
+            color: var(--muted);
+
+            font-size: 0.68rem;
+
+            margin-top: 3px;
+        }
+
+
+        /* =====================================================
+           CONTENT CARD
         ====================================================== */
 
         .content-card {
@@ -421,18 +502,14 @@
             box-shadow:
                 var(--shadow);
 
-            transition:
-                border-color 0.25s ease,
-                transform 0.25s ease;
-
+            transition: 0.3s ease;
         }
 
 
         .content-card:hover {
 
             border-color:
-                rgba(34, 211, 238, 0.18);
-
+                rgba(34, 211, 238, 0.16);
         }
 
 
@@ -448,16 +525,15 @@
 
             gap: 12px;
 
-            margin-bottom: 22px;
-
+            margin-bottom: 23px;
         }
 
 
         .heading-icon {
 
-            width: 42px;
+            width: 44px;
 
-            height: 42px;
+            height: 44px;
 
             display: flex;
 
@@ -467,7 +543,7 @@
 
             flex-shrink: 0;
 
-            border-radius: 11px;
+            border-radius: 12px;
 
             color: var(--primary);
 
@@ -478,7 +554,6 @@
                 1px solid rgba(34, 211, 238, 0.14);
 
             font-size: 1.15rem;
-
         }
 
 
@@ -490,27 +565,27 @@
             font-size: 1.15rem;
 
             font-weight: 700;
-
         }
 
+
+        /* =====================================================
+           OVERVIEW
+        ====================================================== */
 
         .overview-text {
 
             color: var(--muted);
 
-            font-size: 0.86rem;
+            font-size: 0.85rem;
 
             line-height: 1.9;
 
             margin-bottom: 15px;
-
         }
 
 
         .overview-text:last-child {
-
             margin-bottom: 0;
-
         }
 
 
@@ -532,9 +607,7 @@
             background:
                 rgba(255, 255, 255, 0.025);
 
-            transition:
-                0.25s ease;
-
+            transition: 0.25s ease;
         }
 
 
@@ -548,15 +621,14 @@
 
             background:
                 rgba(34, 211, 238, 0.045);
-
         }
 
 
         .feature-icon {
 
-            width: 44px;
+            width: 45px;
 
-            height: 44px;
+            height: 45px;
 
             display: flex;
 
@@ -564,7 +636,7 @@
 
             justify-content: center;
 
-            border-radius: 11px;
+            border-radius: 12px;
 
             color: var(--primary);
 
@@ -577,7 +649,6 @@
             font-size: 1.2rem;
 
             margin-bottom: 15px;
-
         }
 
 
@@ -588,7 +659,6 @@
             font-weight: 700;
 
             margin-bottom: 8px;
-
         }
 
 
@@ -601,12 +671,11 @@
             line-height: 1.7;
 
             margin: 0;
-
         }
 
 
         /* =====================================================
-           TECHNOLOGY TAGS
+           TECHNOLOGIES
         ====================================================== */
 
         .tech-tags {
@@ -615,17 +684,21 @@
 
             flex-wrap: wrap;
 
-            gap: 9px;
-
+            gap: 10px;
         }
 
 
-        .tech-tags span {
+        .tech-tag {
 
-            padding:
-                8px 13px;
+            display: inline-flex;
 
-            border-radius: 8px;
+            align-items: center;
+
+            gap: 7px;
+
+            padding: 9px 13px;
+
+            border-radius: 9px;
 
             color: #dbe7f4;
 
@@ -640,11 +713,10 @@
             font-weight: 600;
 
             transition: 0.2s ease;
-
         }
 
 
-        .tech-tags span:hover {
+        .tech-tag:hover {
 
             color: white;
 
@@ -653,12 +725,98 @@
 
             border-color:
                 rgba(34, 211, 238, 0.3);
+        }
 
+
+        .tech-tag i {
+            color: var(--primary);
         }
 
 
         /* =====================================================
-           PROJECT INFORMATION
+           PROJECT FLOW
+        ====================================================== */
+
+        .flow-list {
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 14px;
+        }
+
+
+        .flow-item {
+
+            display: flex;
+
+            align-items: flex-start;
+
+            gap: 14px;
+
+            padding: 14px;
+
+            border-radius: 12px;
+
+            background:
+                rgba(255, 255, 255, 0.025);
+
+            border:
+                1px solid rgba(255, 255, 255, 0.06);
+        }
+
+
+        .flow-number {
+
+            width: 30px;
+
+            height: 30px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            flex-shrink: 0;
+
+            border-radius: 9px;
+
+            color: white;
+
+            background: var(--gradient);
+
+            font-size: 0.7rem;
+
+            font-weight: 700;
+        }
+
+
+        .flow-item h6 {
+
+            margin-bottom: 3px;
+
+            font-size: 0.78rem;
+
+            font-weight: 700;
+        }
+
+
+        .flow-item p {
+
+            margin: 0;
+
+            color: var(--muted);
+
+            font-size: 0.7rem;
+
+            line-height: 1.6;
+        }
+
+
+        /* =====================================================
+           INFORMATION SIDEBAR
         ====================================================== */
 
         .info-card {
@@ -666,7 +824,6 @@
             position: sticky;
 
             top: 100px;
-
         }
 
 
@@ -677,14 +834,13 @@
             flex-direction: column;
 
             gap: 10px;
-
         }
 
 
         .info-item {
 
             padding:
-                13px 14px;
+                14px;
 
             border-radius: 11px;
 
@@ -693,7 +849,6 @@
 
             border:
                 1px solid rgba(255, 255, 255, 0.06);
-
         }
 
 
@@ -703,10 +858,11 @@
 
             color: #7f8da2;
 
-            font-size: 0.67rem;
+            font-size: 0.65rem;
 
             margin-bottom: 4px;
 
+            letter-spacing: 0.5px;
         }
 
 
@@ -716,12 +872,11 @@
 
             color: #edf4fb;
 
-            font-size: 0.79rem;
+            font-size: 0.78rem;
 
             line-height: 1.5;
 
             font-weight: 600;
-
         }
 
 
@@ -734,7 +889,6 @@
 
             margin:
                 22px 0;
-
         }
 
 
@@ -754,15 +908,13 @@
 
             gap: 9px;
 
-            border-radius: 10px;
+            border-radius: 11px;
 
-            font-size: 0.79rem;
+            font-size: 0.78rem;
 
             font-weight: 600;
 
-            transition:
-                0.25s ease;
-
+            transition: 0.25s ease;
         }
 
 
@@ -776,7 +928,6 @@
                 linear-gradient(135deg,
                     var(--blue),
                     var(--secondary));
-
         }
 
 
@@ -789,7 +940,6 @@
 
             box-shadow:
                 0 15px 30px rgba(59, 130, 246, 0.2);
-
         }
 
 
@@ -802,7 +952,6 @@
 
             background:
                 rgba(255, 255, 255, 0.035);
-
         }
 
 
@@ -818,7 +967,6 @@
 
             background:
                 rgba(34, 211, 238, 0.06);
-
         }
 
 
@@ -829,14 +977,13 @@
         footer {
 
             padding:
-                42px 0 25px;
+                45px 0 25px;
 
             background:
                 #030611;
 
             border-top:
                 1px solid var(--border);
-
         }
 
 
@@ -847,7 +994,6 @@
             font-weight: 700;
 
             margin-bottom: 7px;
-
         }
 
 
@@ -856,7 +1002,6 @@
             color: var(--muted);
 
             font-size: 0.8rem;
-
         }
 
 
@@ -870,7 +1015,6 @@
 
             margin:
                 18px 0;
-
         }
 
 
@@ -896,9 +1040,7 @@
             border:
                 1px solid var(--border);
 
-            transition:
-                0.25s ease;
-
+            transition: 0.25s ease;
         }
 
 
@@ -911,7 +1053,6 @@
 
             background:
                 var(--gradient);
-
         }
 
 
@@ -920,7 +1061,6 @@
             margin: 0;
 
             font-size: 0.7rem;
-
         }
 
 
@@ -931,9 +1071,7 @@
         @media (max-width: 991.98px) {
 
             .info-card {
-
                 position: static;
-
             }
 
         }
@@ -942,55 +1080,49 @@
         @media (max-width: 767.98px) {
 
             body {
-
                 padding-top: 68px;
-
             }
 
 
             .navbar {
-
                 min-height: 68px;
-
             }
 
 
             .project-section {
-
                 padding:
                     45px 0 70px;
-
             }
 
 
             .project-header {
-
                 margin:
                     35px auto 40px;
-
             }
 
 
             .project-header h1 {
-
                 font-size: 2.35rem;
-
             }
 
 
             .content-card {
-
                 padding: 22px;
 
                 border-radius: 17px;
+            }
+
+
+            .project-stats {
+
+                grid-template-columns:
+                    1fr;
 
             }
 
 
             .feature-box {
-
                 padding: 18px;
-
             }
 
         }
@@ -999,16 +1131,12 @@
         @media (max-width: 400px) {
 
             .project-header h1 {
-
                 font-size: 2rem;
-
             }
 
 
             .content-card {
-
                 padding: 19px;
-
             }
 
         }
@@ -1029,11 +1157,15 @@
         <div class="container">
 
 
-            <a class="navbar-brand fw-bold" href="index.html">
+            <a class="navbar-brand" href="index.html">
 
-                <span class="logo">S</span>
+                <span class="logo">
+                    S
+                </span>
 
-                <span>Sandhiya P</span>
+                <span>
+                    Sandhiya P
+                </span>
 
             </a>
 
@@ -1050,11 +1182,12 @@
 
                 <ul class="navbar-nav ms-auto">
 
-
                     <li class="nav-item">
 
                         <a class="nav-link" href="index.html">
+
                             Home
+
                         </a>
 
                     </li>
@@ -1063,7 +1196,9 @@
                     <li class="nav-item">
 
                         <a class="nav-link" href="about.html">
+
                             About
+
                         </a>
 
                     </li>
@@ -1072,7 +1207,9 @@
                     <li class="nav-item">
 
                         <a class="nav-link" href="skills.html">
+
                             Skills
+
                         </a>
 
                     </li>
@@ -1080,8 +1217,10 @@
 
                     <li class="nav-item">
 
-                        <a class="nav-link active" href="projects.html">
+                        <a class="nav-link active" href="projects.html" aria-current="page">
+
                             Projects
+
                         </a>
 
                     </li>
@@ -1090,7 +1229,9 @@
                     <li class="nav-item">
 
                         <a class="nav-link" href="contact.html">
+
                             Contact
+
                         </a>
 
                     </li>
@@ -1106,7 +1247,7 @@
 
 
     <!-- =====================================================
-         MAIN PROJECT SECTION
+         MAIN
     ====================================================== -->
 
     <main class="project-section">
@@ -1114,7 +1255,7 @@
         <div class="container">
 
 
-            <!-- BACK BUTTON -->
+            <!-- BACK -->
 
             <a href="projects.html" class="back-btn">
 
@@ -1153,22 +1294,77 @@
                 <div class="title-line"></div>
 
 
-                <p class="description">
+                <p class="project-description">
 
-                    A web-based task management application
-                    developed using Python and Django for
-                    managing employees, assigning tasks,
-                    and tracking task status.
+                    A responsive task management web application
+                    developed using Python and Django to manage
+                    employees, assign tasks and track task progress
+                    through an organized dashboard.
 
                 </p>
-
 
             </header>
 
 
 
             <!-- =================================================
-                 MAIN CONTENT
+                 PROJECT STATS
+            ================================================== -->
+
+            <div class="project-stats">
+
+
+                <div class="stat-card">
+
+                    <i class="bi bi-code-slash"></i>
+
+                    <strong>
+                        Full Stack
+                    </strong>
+
+                    <span>
+                        Web Application
+                    </span>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <i class="bi bi-filetype-py"></i>
+
+                    <strong>
+                        Python + Django
+                    </strong>
+
+                    <span>
+                        Backend
+                    </span>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <i class="bi bi-database"></i>
+
+                    <strong>
+                        MySQL
+                    </strong>
+
+                    <span>
+                        Database
+                    </span>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- =================================================
+                 MAIN GRID
             ================================================== -->
 
             <div class="row g-4 align-items-start">
@@ -1176,12 +1372,12 @@
 
                 <!-- =================================================
                      LEFT COLUMN
-                ================================================= -->
+                ================================================== -->
 
                 <div class="col-lg-8">
 
 
-                    <!-- PROJECT OVERVIEW -->
+                    <!-- OVERVIEW -->
 
                     <section class="content-card">
 
@@ -1204,29 +1400,29 @@
                         <p class="overview-text">
 
                             The Task Management System is a
-                            web application developed using
-                            Python and Django.
+                            full-stack web application developed
+                            using Python and Django.
 
                         </p>
 
 
                         <p class="overview-text">
 
-                            The system allows administrators
-                            to manage employees and assign
-                            tasks. Employees can view their
-                            assigned tasks and track the
-                            current status of each task.
+                            The application provides a structured
+                            platform for managing employees and
+                            assigning tasks. Administrators can
+                            manage employee information and create
+                            tasks for individual employees.
 
                         </p>
 
 
                         <p class="overview-text">
 
-                            The application provides a simple
-                            and organized interface for
-                            managing tasks and employee
-                            activities.
+                            Employees can view their assigned
+                            tasks and monitor their current
+                            status, making it easier to organize
+                            daily work and track progress.
 
                         </p>
 
@@ -1235,9 +1431,7 @@
 
 
 
-                    <!-- =================================================
-                         FEATURES
-                    ================================================== -->
+                    <!-- FEATURES -->
 
                     <section class="content-card mt-4">
 
@@ -1246,7 +1440,7 @@
 
                             <div class="heading-icon">
 
-                                <i class="bi bi-check-circle"></i>
+                                <i class="bi bi-check2-circle"></i>
 
                             </div>
 
@@ -1260,12 +1454,9 @@
                         <div class="row g-3">
 
 
-                            <!-- FEATURE 1 -->
-
                             <div class="col-md-6">
 
                                 <div class="feature-box">
-
 
                                     <div class="feature-icon">
 
@@ -1273,32 +1464,23 @@
 
                                     </div>
 
-
                                     <h5>
                                         Employee Management
                                     </h5>
 
-
                                     <p>
-
-                                        Add and manage employee
-                                        information.
-
+                                        Add, manage and organize
+                                        employee information.
                                     </p>
-
 
                                 </div>
 
                             </div>
 
 
-
-                            <!-- FEATURE 2 -->
-
                             <div class="col-md-6">
 
                                 <div class="feature-box">
-
 
                                     <div class="feature-icon">
 
@@ -1306,32 +1488,23 @@
 
                                     </div>
 
-
                                     <h5>
                                         Task Assignment
                                     </h5>
 
-
                                     <p>
-
-                                        Assign tasks to employees
-                                        and manage task details.
-
+                                        Create and assign tasks
+                                        to employees.
                                     </p>
-
 
                                 </div>
 
                             </div>
 
 
-
-                            <!-- FEATURE 3 -->
-
                             <div class="col-md-6">
 
                                 <div class="feature-box">
-
 
                                     <div class="feature-icon">
 
@@ -1339,32 +1512,23 @@
 
                                     </div>
 
-
                                     <h5>
                                         Task Tracking
                                     </h5>
 
-
                                     <p>
-
                                         Track task progress and
                                         completion status.
-
                                     </p>
-
 
                                 </div>
 
                             </div>
 
 
-
-                            <!-- FEATURE 4 -->
-
                             <div class="col-md-6">
 
                                 <div class="feature-box">
-
 
                                     <div class="feature-icon">
 
@@ -1372,19 +1536,14 @@
 
                                     </div>
 
-
                                     <h5>
                                         User Management
                                     </h5>
 
-
                                     <p>
-
-                                        Manage users and provide
-                                        controlled access.
-
+                                        Provide controlled access
+                                        for different users.
                                     </p>
-
 
                                 </div>
 
@@ -1393,14 +1552,11 @@
 
                         </div>
 
-
                     </section>
 
 
 
-                    <!-- =================================================
-                         TECHNOLOGIES
-                    ================================================== -->
+                    <!-- TECHNOLOGIES -->
 
                     <section class="content-card mt-4">
 
@@ -1409,7 +1565,7 @@
 
                             <div class="heading-icon">
 
-                                <i class="bi bi-code-slash"></i>
+                                <i class="bi bi-stack"></i>
 
                             </div>
 
@@ -1423,23 +1579,147 @@
                         <div class="tech-tags">
 
 
-                            <span>Python</span>
+                            <span class="tech-tag">
+                                <i class="bi bi-filetype-py"></i>
+                                Python
+                            </span>
 
-                            <span>Django</span>
 
-                            <span>HTML5</span>
+                            <span class="tech-tag">
+                                <i class="bi bi-window"></i>
+                                Django
+                            </span>
 
-                            <span>CSS3</span>
 
-                            <span>Bootstrap</span>
+                            <span class="tech-tag">
+                                <i class="bi bi-filetype-html"></i>
+                                HTML5
+                            </span>
 
-                            <span>JavaScript</span>
 
-                            <span>SQL</span>
+                            <span class="tech-tag">
+                                <i class="bi bi-filetype-css"></i>
+                                CSS3
+                            </span>
+
+
+                            <span class="tech-tag">
+                                <i class="bi bi-bootstrap"></i>
+                                Bootstrap
+                            </span>
+
+
+                            <span class="tech-tag">
+                                <i class="bi bi-filetype-js"></i>
+                                JavaScript
+                            </span>
+
+
+                            <span class="tech-tag">
+                                <i class="bi bi-database"></i>
+                                MySQL
+                            </span>
 
 
                         </div>
 
+                    </section>
+
+
+
+                    <!-- PROJECT FLOW -->
+
+                    <section class="content-card mt-4">
+
+
+                        <div class="card-heading">
+
+                            <div class="heading-icon">
+
+                                <i class="bi bi-diagram-3"></i>
+
+                            </div>
+
+                            <h2>
+                                How It Works
+                            </h2>
+
+                        </div>
+
+
+                        <div class="flow-list">
+
+
+                            <div class="flow-item">
+
+                                <div class="flow-number">
+                                    01
+                                </div>
+
+                                <div>
+
+                                    <h6>
+                                        Employee Management
+                                    </h6>
+
+                                    <p>
+                                        Employee details are
+                                        maintained within the
+                                        application.
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="flow-item">
+
+                                <div class="flow-number">
+                                    02
+                                </div>
+
+                                <div>
+
+                                    <h6>
+                                        Create & Assign Tasks
+                                    </h6>
+
+                                    <p>
+                                        Tasks are created and
+                                        assigned to the appropriate
+                                        employee.
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="flow-item">
+
+                                <div class="flow-number">
+                                    03
+                                </div>
+
+                                <div>
+
+                                    <h6>
+                                        Track Progress
+                                    </h6>
+
+                                    <p>
+                                        Employees can view and
+                                        track the status of their
+                                        assigned tasks.
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+
+                        </div>
 
                     </section>
 
@@ -1496,7 +1776,7 @@
                                 </small>
 
                                 <strong>
-                                    Web Application
+                                    Full Stack Web Application
                                 </strong>
 
                             </div>
@@ -1547,7 +1827,9 @@
                         <hr class="divider">
 
 
-                        <!-- GITHUB BUTTON -->
+                        <!-- GITHUB -->
+
+                        <!-- Replace this URL with your actual GitHub repository -->
 
                         <a href="http://127.0.0.1:8000/management/employee/" target="_blank" rel="noopener noreferrer"
                             class="btn action-btn github-btn w-100 mb-3">
@@ -1563,7 +1845,10 @@
 
                         <!-- LIVE DEMO -->
 
-                        <a href="http://127.0.0.1:8000/management/employee/" class="btn action-btn demo-btn w-100">
+                        <!-- Replace this URL with your deployed website URL -->
+
+                        <a href="http://127.0.0.1:8000/management/employee/" target="_blank" rel="noopener noreferrer"
+                            class="btn action-btn demo-btn w-100">
 
                             <i class="bi bi-globe2"></i>
 
@@ -1576,12 +1861,10 @@
 
                     </aside>
 
-
                 </div>
 
 
             </div>
-
 
         </div>
 
@@ -1611,7 +1894,9 @@
             <div class="footer-social">
 
 
-                <a href="https://github.com/YOUR-USERNAME" target="_blank" rel="noopener noreferrer"
+                <!-- Replace with actual GitHub -->
+
+                <a href="https://github.com/sdnas161-cloud/MyProject" target="_blank" rel="noopener noreferrer"
                     aria-label="GitHub">
 
                     <i class="bi bi-github"></i>
@@ -1619,15 +1904,19 @@
                 </a>
 
 
-                <a href="https://www.linkedin.com/in/YOUR-USERNAME/" target="_blank" rel="noopener noreferrer"
-                    aria-label="LinkedIn">
+                <!-- Replace with actual LinkedIn -->
+
+                <a href="https://www.linkedin.com/in/sandhiya-pitchaimuthu-785701353/" target="_blank"
+                    rel="noopener noreferrer" aria-label="LinkedIn">
 
                     <i class="bi bi-linkedin"></i>
 
                 </a>
 
 
-                <a href="mailto:your-email@gmail.com" aria-label="Email">
+                <!-- Replace email -->
+
+                <a href="mailto:sdnas161gmail@gmail.com" aria-label="Email">
 
                     <i class="bi bi-envelope"></i>
 

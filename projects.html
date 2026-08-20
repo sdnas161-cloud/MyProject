@@ -4,369 +4,1080 @@
 <head>
 
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="Projects portfolio of Sandhiya P - Junior Full Stack Web Developer">
 
     <title>Projects | Sandhiya P</title>
 
 
-    <!-- Bootstrap CSS -->
+    <!-- =====================================================
+         GOOGLE FONT
+    ====================================================== -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+
+    <!-- =====================================================
+         BOOTSTRAP
+    ====================================================== -->
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
 
-    <!-- Bootstrap Icons -->
+    <!-- =====================================================
+         BOOTSTRAP ICONS
+    ====================================================== -->
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
 
-    <!-- Custom CSS -->
+    <!-- =====================================================
+         CUSTOM CSS
+    ====================================================== -->
 
     <style>
+        /* =====================================================
+           ROOT VARIABLES
+        ====================================================== */
+
         :root {
-            --bg: #07111f;
-            --card: #0d1b2e;
-            --card-2: #10243b;
-            --text: #f7f9fc;
-            --muted: #aab7c8;
-            --accent: #00d4ff;
-            --accent-2: #7c3aed;
-            --border: rgba(255, 255, 255, .10);
+
+            --bg: #050816;
+            --bg-light: #091225;
+
+            --card: rgba(15, 23, 42, 0.82);
+
+            --text: #f8fafc;
+            --muted: #94a3b8;
+
+            --cyan: #22d3ee;
+            --blue: #3b82f6;
+            --purple: #8b5cf6;
+
+            --green: #22c55e;
+
+            --border: rgba(255, 255, 255, 0.09);
+
+            --gradient:
+                linear-gradient(135deg,
+                    var(--cyan),
+                    var(--blue),
+                    var(--purple));
         }
+
+
+        /* =====================================================
+           RESET
+        ====================================================== */
 
         * {
-            box-sizing: border-box
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
+
 
         html {
-            scroll-behavior: smooth
+            scroll-behavior: smooth;
         }
+
 
         body {
-            margin: 0;
-            padding-top: 76px;
-            font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-            background:
-                radial-gradient(circle at 10% 10%, rgba(0, 212, 255, .10), transparent 30%),
-                radial-gradient(circle at 90% 20%, rgba(124, 58, 237, .10), transparent 28%),
-                var(--bg);
+
+            font-family: "Poppins", sans-serif;
+
             color: var(--text);
+
+            background:
+
+                radial-gradient(circle at 10% 10%,
+                    rgba(34, 211, 238, 0.10),
+                    transparent 30%),
+
+                radial-gradient(circle at 90% 20%,
+                    rgba(139, 92, 246, 0.12),
+                    transparent 30%),
+
+                var(--bg);
+
+            min-height: 100vh;
+
+            padding-top: 76px;
         }
+
+
+        a {
+            text-decoration: none;
+        }
+
+
+        /* =====================================================
+           NAVBAR
+        ====================================================== */
 
         .navbar {
+
             min-height: 76px;
-            background: rgba(7, 17, 31, .88);
-            backdrop-filter: blur(14px);
-            border-bottom: 1px solid var(--border);
+
+            background:
+                rgba(5, 8, 22, 0.88) !important;
+
+            backdrop-filter:
+                blur(18px);
+
+            -webkit-backdrop-filter:
+                blur(18px);
+
+            border-bottom:
+                1px solid var(--border);
+
         }
+
 
         .navbar-brand {
+
             display: flex;
+
             align-items: center;
+
             gap: 10px;
-            font-size: 1.1rem
+
+            color: white !important;
+
+            font-size: 1rem;
+
+            font-weight: 700;
+
         }
+
 
         .logo {
-            width: 38px;
-            height: 38px;
-            display: inline-flex;
+
+            width: 40px;
+
+            height: 40px;
+
+            display: flex;
+
             align-items: center;
+
             justify-content: center;
-            border-radius: 11px;
-            background: linear-gradient(135deg, var(--accent), var(--accent-2));
-            color: #fff;
+
+            border-radius: 12px;
+
+            background: var(--gradient);
+
+            color: white;
+
+            font-size: 1rem;
+
             font-weight: 800;
-            box-shadow: 0 8px 24px rgba(0, 212, 255, .18);
+
+            box-shadow:
+                0 10px 30px rgba(34, 211, 238, 0.20);
+
         }
+
 
         .navbar-nav {
-            gap: 8px
+
+            gap: 5px;
+
         }
+
 
         .nav-link {
-            color: #cbd5e1 !important;
-            padding: .55rem .9rem !important;
-            border-radius: 9px;
-            transition: .25s ease;
+
+            color: #aebbd0 !important;
+
+            font-size: 0.84rem;
+
+            font-weight: 500;
+
+            padding:
+                9px 14px !important;
+
+            border-radius: 10px;
+
+            transition:
+                all 0.25s ease;
+
         }
 
-        .nav-link:hover,
-        .nav-link.active {
-            color: #fff !important;
-            background: rgba(255, 255, 255, .08);
+
+        .nav-link:hover {
+
+            color: white !important;
+
+            background:
+                rgba(255, 255, 255, 0.06);
+
         }
+
+
+        .nav-link.active {
+
+            color: white !important;
+
+            background:
+                rgba(34, 211, 238, 0.10);
+
+            border:
+                1px solid rgba(34, 211, 238, 0.15);
+
+        }
+
+
+        .navbar-toggler {
+
+            border:
+                1px solid rgba(255, 255, 255, 0.15);
+
+            padding: 7px 10px;
+
+        }
+
+
+        /* =====================================================
+           PROJECT SECTION
+        ====================================================== */
 
         .projects-section {
-            padding: 85px 0 95px
+
+            padding:
+                90px 0 110px;
+
+            position: relative;
+
+            overflow: hidden;
         }
+
+
+        .projects-section::before {
+
+            content: "";
+
+            position: absolute;
+
+            width: 350px;
+
+            height: 350px;
+
+            top: 150px;
+
+            left: -180px;
+
+            background:
+                rgba(34, 211, 238, 0.05);
+
+            filter:
+                blur(80px);
+
+            border-radius: 50%;
+
+            pointer-events: none;
+        }
+
+
+        .projects-section::after {
+
+            content: "";
+
+            position: absolute;
+
+            width: 350px;
+
+            height: 350px;
+
+            bottom: 100px;
+
+            right: -180px;
+
+            background:
+                rgba(139, 92, 246, 0.06);
+
+            filter:
+                blur(80px);
+
+            border-radius: 50%;
+
+            pointer-events: none;
+        }
+
+
+        .projects-container {
+
+            position: relative;
+
+            z-index: 1;
+        }
+
+
+        /* =====================================================
+           SECTION TITLE
+        ====================================================== */
 
         .section-title {
+
             max-width: 760px;
-            margin: 0 auto 52px
+
+            margin:
+                0 auto 58px;
+
+            text-align: center;
+
         }
+
 
         .small-title {
-            color: var(--accent);
-            font-size: .78rem;
-            font-weight: 800;
+
+            display: inline-block;
+
+            color: var(--cyan);
+
+            font-size: 0.72rem;
+
+            font-weight: 700;
+
             letter-spacing: 3px;
-            margin-bottom: 10px;
+
+            margin-bottom: 12px;
+
         }
+
 
         .section-title h1 {
-            font-size: clamp(2.3rem, 5vw, 3.5rem);
+
+            font-size:
+                clamp(2.4rem, 5vw, 3.8rem);
+
+            line-height: 1.1;
+
             font-weight: 800;
-            margin: 0;
+
+            letter-spacing: -1px;
+
+            margin-bottom: 15px;
+
         }
+
 
         .section-title h1 span {
-            background: linear-gradient(90deg, var(--accent), #a78bfa);
+
+            background:
+                var(--gradient);
+
             -webkit-background-clip: text;
+
             background-clip: text;
+
             color: transparent;
+
         }
+
 
         .title-line {
+
             width: 65px;
+
             height: 4px;
-            border-radius: 10px;
-            margin: 18px auto 20px;
-            background: linear-gradient(90deg, var(--accent), var(--accent-2));
+
+            margin:
+                0 auto 22px;
+
+            border-radius: 50px;
+
+            background:
+                var(--gradient);
+
         }
+
 
         .section-description {
+
+            max-width: 650px;
+
+            margin: auto;
+
             color: var(--muted);
-            line-height: 1.8;
-            margin: 0;
+
+            font-size: 0.9rem;
+
+            line-height: 1.9;
+
         }
+
+
+        /* =====================================================
+           PROJECT CARD
+        ====================================================== */
 
         .project-card {
+
             height: 100%;
-            overflow: hidden;
+
             display: flex;
+
             flex-direction: column;
-            background: linear-gradient(180deg, rgba(16, 36, 59, .96), rgba(13, 27, 46, .98));
-            border: 1px solid var(--border);
-            border-radius: 20px;
-            box-shadow: 0 18px 45px rgba(0, 0, 0, .20);
-            transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;
+
+            overflow: hidden;
+
+            position: relative;
+
+            border:
+                1px solid var(--border);
+
+            border-radius: 22px;
+
+            background:
+                linear-gradient(180deg,
+                    rgba(15, 27, 47, 0.96),
+                    rgba(7, 13, 28, 0.98));
+
+            box-shadow:
+                0 20px 55px rgba(0, 0, 0, 0.22);
+
+            transition:
+                transform 0.35s ease,
+                border-color 0.35s ease,
+                box-shadow 0.35s ease;
+
         }
+
 
         .project-card:hover {
-            transform: translateY(-8px);
-            border-color: rgba(0, 212, 255, .35);
-            box-shadow: 0 25px 55px rgba(0, 0, 0, .32);
+
+            transform:
+                translateY(-10px);
+
+            border-color:
+                rgba(34, 211, 238, 0.30);
+
+            box-shadow:
+                0 30px 70px rgba(0, 0, 0, 0.35);
+
         }
+
+
+        /* =====================================================
+           PROJECT TOP
+        ====================================================== */
 
         .project-image {
-            min-height: 190px;
+
+            min-height: 205px;
+
             position: relative;
+
             display: flex;
+
             align-items: center;
+
             justify-content: center;
+
             overflow: hidden;
+
         }
+
+
+        .project-image::before {
+
+            content: "";
+
+            position: absolute;
+
+            width: 160px;
+
+            height: 160px;
+
+            border-radius: 50%;
+
+            background:
+                rgba(255, 255, 255, 0.10);
+
+            filter:
+                blur(2px);
+
+            transition:
+                transform 0.5s ease;
+
+        }
+
+
+        .project-card:hover .project-image::before {
+
+            transform:
+                scale(1.5);
+
+        }
+
 
         .project-image::after {
+
             content: "";
+
             position: absolute;
+
             inset: 0;
-            background: linear-gradient(135deg, rgba(0, 212, 255, .12), rgba(124, 58, 237, .22));
+
+            background:
+                linear-gradient(135deg,
+                    rgba(255, 255, 255, 0.04),
+                    transparent);
+
         }
+
 
         .project-image i {
+
             position: relative;
-            z-index: 1;
-            font-size: 4.4rem;
-            color: #fff;
-            text-shadow: 0 10px 35px rgba(0, 0, 0, .35);
+
+            z-index: 2;
+
+            font-size: 4.5rem;
+
+            color: white;
+
+            text-shadow:
+                0 10px 30px rgba(0, 0, 0, 0.35);
+
+            transition:
+                transform 0.35s ease;
+
         }
+
+
+        .project-card:hover .project-image i {
+
+            transform:
+                scale(1.12) rotate(-4deg);
+
+        }
+
+
+        /* PROJECT COLORS */
 
         .task-project {
-            background: linear-gradient(135deg, #075985, #312e81)
+
+            background:
+                linear-gradient(135deg,
+                    #075985,
+                    #1e3a8a,
+                    #312e81);
+
         }
+
 
         .ecommerce-project {
-            background: linear-gradient(135deg, #14532d, #0f766e)
+
+            background:
+                linear-gradient(135deg,
+                    #065f46,
+                    #0f766e,
+                    #14532d);
+
         }
+
 
         .ml-project {
-            background: linear-gradient(135deg, #581c87, #be185d)
+
+            background:
+                linear-gradient(135deg,
+                    #581c87,
+                    #7e22ce,
+                    #be185d);
+
         }
+
+
+        /* =====================================================
+           PROJECT NUMBER
+        ====================================================== */
 
         .project-number {
+
             position: absolute;
-            z-index: 2;
-            right: 18px;
+
+            z-index: 5;
+
             top: 16px;
-            padding: 5px 10px;
-            border-radius: 999px;
-            font-size: .72rem;
-            font-weight: 800;
-            background: rgba(0, 0, 0, .25);
-            border: 1px solid rgba(255, 255, 255, .18);
+
+            right: 16px;
+
+            padding:
+                6px 11px;
+
+            border-radius: 50px;
+
+            color: white;
+
+            background:
+                rgba(0, 0, 0, 0.28);
+
+            border:
+                1px solid rgba(255, 255, 255, 0.20);
+
+            backdrop-filter:
+                blur(8px);
+
+            font-size: 0.7rem;
+
+            font-weight: 700;
+
         }
+
+
+        /* =====================================================
+           PROJECT CONTENT
+        ====================================================== */
 
         .project-content {
+
             flex: 1;
-            padding: 27px;
+
+            padding:
+                28px;
+
             display: flex;
+
             flex-direction: column;
+
         }
+
 
         .project-category {
-            color: var(--accent);
-            font-size: .72rem;
-            font-weight: 800;
-            letter-spacing: 1.5px;
-            margin-bottom: 9px;
+
+            display: inline-block;
+
+            color: var(--cyan);
+
+            font-size: 0.67rem;
+
+            font-weight: 700;
+
+            letter-spacing: 1.8px;
+
+            margin-bottom: 10px;
+
         }
+
 
         .project-content h3 {
-            font-size: 1.35rem;
-            font-weight: 750;
-            margin-bottom: 12px;
+
+            font-size: 1.25rem;
+
+            line-height: 1.4;
+
+            font-weight: 700;
+
+            margin-bottom: 13px;
+
         }
+
 
         .project-content>p {
+
             color: var(--muted);
-            line-height: 1.7;
-            font-size: .94rem;
-            margin-bottom: 18px;
+
+            font-size: 0.82rem;
+
+            line-height: 1.8;
+
+            margin-bottom: 20px;
+
         }
+
+
+        /* =====================================================
+           FEATURES
+        ====================================================== */
 
         .project-features {
+
             list-style: none;
+
             padding: 0;
-            margin: 0 0 20px;
+
+            margin:
+                0 0 22px;
+
             display: grid;
-            gap: 9px;
+
+            gap: 10px;
+
         }
+
 
         .project-features li {
-            color: #dbe5f1;
-            font-size: .88rem;
+
             display: flex;
+
             align-items: center;
+
             gap: 9px;
+
+            color: #dce6f2;
+
+            font-size: 0.77rem;
+
         }
+
 
         .project-features i {
-            color: #22c55e
+
+            color: var(--green);
+
+            font-size: 0.82rem;
+
         }
+
+
+        /* =====================================================
+           TECHNOLOGY TAGS
+        ====================================================== */
 
         .tech-tags {
+
             display: flex;
+
             flex-wrap: wrap;
+
             gap: 7px;
+
             margin-top: auto;
-            margin-bottom: 22px;
+
+            margin-bottom: 24px;
+
         }
+
 
         .tech-tags span {
-            padding: 6px 10px;
+
+            padding:
+                6px 10px;
+
             border-radius: 7px;
-            background: rgba(255, 255, 255, .06);
-            border: 1px solid var(--border);
-            color: #d8e2ee;
-            font-size: .73rem;
+
+            color: #dbe7f4;
+
+            background:
+                rgba(255, 255, 255, 0.045);
+
+            border:
+                1px solid rgba(255, 255, 255, 0.08);
+
+            font-size: 0.68rem;
+
             font-weight: 600;
+
+            transition:
+                all 0.2s ease;
+
         }
 
-        .project-content .btn {
+
+        .tech-tags span:hover {
+
+            color: white;
+
+            border-color:
+                rgba(34, 211, 238, 0.30);
+
+            background:
+                rgba(34, 211, 238, 0.07);
+
+            transform:
+                translateY(-2px);
+
+        }
+
+
+        /* =====================================================
+           PROJECT BUTTON
+        ====================================================== */
+
+        .project-btn {
+
             width: 100%;
+
+            min-height: 46px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 8px;
+
             border-radius: 10px;
-            padding: 10px 16px;
-            font-weight: 650;
-            border-color: rgba(255, 255, 255, .18);
-            color: #fff;
-            transition: .25s ease;
+
+            color: white !important;
+
+            background:
+                rgba(255, 255, 255, 0.045);
+
+            border:
+                1px solid rgba(255, 255, 255, 0.12);
+
+            font-size: 0.78rem;
+
+            font-weight: 600;
+
+            transition:
+                all 0.25s ease;
+
         }
 
-        .project-content .btn:hover {
-            background: linear-gradient(90deg, var(--accent), var(--accent-2));
-            border-color: transparent;
-            color: #fff;
+
+        .project-btn:hover {
+
+            color: white !important;
+
+            border-color:
+                transparent;
+
+            background:
+                var(--gradient);
+
+            transform:
+                translateY(-2px);
+
+            box-shadow:
+                0 12px 28px rgba(34, 211, 238, 0.14);
+
         }
+
+
+        /* =====================================================
+           FOOTER
+        ====================================================== */
 
         footer {
-            padding: 42px 0 25px;
-            background: #050d18;
-            border-top: 1px solid var(--border);
+
+            padding:
+                45px 0 25px;
+
+            background:
+                #030611;
+
+            border-top:
+                1px solid var(--border);
+
         }
+
 
         footer h5 {
-            font-weight: 750;
-            margin-bottom: 7px
+
+            font-size: 1rem;
+
+            font-weight: 700;
+
+            margin-bottom: 7px;
+
         }
+
 
         footer p {
+
             color: var(--muted);
-            margin-bottom: 16px
+
+            font-size: 0.78rem;
+
         }
+
 
         .footer-social {
+
             display: flex;
+
             justify-content: center;
-            gap: 12px;
-            margin: 18px 0
+
+            gap: 10px;
+
+            margin:
+                20px 0;
+
         }
+
 
         .footer-social a {
+
             width: 42px;
+
             height: 42px;
+
             display: flex;
+
             align-items: center;
+
             justify-content: center;
+
             border-radius: 11px;
-            color: #dbe5f1;
-            background: rgba(255, 255, 255, .06);
-            border: 1px solid var(--border);
-            text-decoration: none;
-            transition: .25s ease;
+
+            color: #cbd5e1;
+
+            background:
+                rgba(255, 255, 255, 0.045);
+
+            border:
+                1px solid var(--border);
+
+            transition:
+                all 0.25s ease;
+
         }
+
 
         .footer-social a:hover {
-            color: #fff;
-            transform: translateY(-3px);
-            background: linear-gradient(135deg, var(--accent), var(--accent-2));
+
+            color: white;
+
+            transform:
+                translateY(-4px);
+
+            background:
+                var(--gradient);
+
+            border-color:
+                transparent;
+
         }
+
 
         footer hr {
-            border-color: var(--border);
-            margin: 25px auto 20px
+
+            border-color:
+                var(--border);
+
+            margin:
+                25px auto 20px;
+
         }
+
 
         .copyright {
-            font-size: .8rem;
-            margin: 0
+
+            margin: 0;
+
+            font-size: 0.68rem;
+
         }
 
-        @media (max-width:767.98px) {
-            body {
-                padding-top: 68px
-            }
 
-            .navbar {
-                min-height: 68px
-            }
+        /* =====================================================
+           RESPONSIVE
+        ====================================================== */
+
+        @media (max-width: 991.98px) {
 
             .projects-section {
-                padding: 60px 0 70px
+
+                padding:
+                    70px 0 85px;
+
             }
+
+        }
+
+
+        @media (max-width: 767.98px) {
+
+            body {
+
+                padding-top: 68px;
+
+            }
+
+
+            .navbar {
+
+                min-height: 68px;
+
+            }
+
+
+            .projects-section {
+
+                padding:
+                    55px 0 70px;
+
+            }
+
 
             .section-title {
-                margin-bottom: 38px
+
+                margin-bottom:
+                    40px;
+
             }
 
-            .project-content {
-                padding: 23px
+
+            .section-title h1 {
+
+                font-size:
+                    2.35rem;
+
             }
+
+
+            .section-description {
+
+                font-size:
+                    0.82rem;
+
+            }
+
 
             .project-image {
-                min-height: 170px
+
+                min-height:
+                    175px;
+
             }
+
+
+            .project-content {
+
+                padding:
+                    23px;
+
+            }
+
+
+            .project-image i {
+
+                font-size:
+                    3.8rem;
+
+            }
+
+        }
+
+
+        @media (max-width: 400px) {
+
+            .section-title h1 {
+
+                font-size:
+                    2rem;
+
+            }
+
+
+            .project-content {
+
+                padding:
+                    20px;
+
+            }
+
         }
     </style>
 
@@ -376,32 +1087,38 @@
 <body>
 
 
-    <!-- ================= NAVBAR ================= -->
+    <!-- =====================================================
+         NAVBAR
+    ====================================================== -->
 
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
 
         <div class="container">
 
 
-            <!-- LOGO -->
+            <!-- BRAND -->
 
-            <a class="navbar-brand fw-bold" href="index.html">
+            <a class="navbar-brand" href="index.html">
 
-                <span class="logo">S</span>
-                Sandhiya P
+                <span class="logo">
+                    S
+                </span>
+
+                <span>
+                    Sandhiya P
+                </span>
 
             </a>
 
 
+            <!-- MOBILE MENU -->
 
-            <!-- MOBILE BUTTON -->
-
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu"
+                aria-controls="navbarMenu" aria-expanded="false" aria-label="Toggle navigation">
 
                 <span class="navbar-toggler-icon"></span>
 
             </button>
-
 
 
             <!-- NAVIGATION -->
@@ -446,7 +1163,7 @@
 
                     <li class="nav-item">
 
-                        <a class="nav-link active" href="projects.html">
+                        <a class="nav-link active" href="projects.html" aria-current="page">
 
                             Projects
 
@@ -476,57 +1193,68 @@
 
 
 
-    <!-- ================= PROJECTS SECTION ================= -->
+    <!-- =====================================================
+         PROJECTS
+    ====================================================== -->
 
-    <section class="projects-section">
+    <main class="projects-section">
 
-        <div class="container">
+        <div class="container projects-container">
 
 
-            <!-- TITLE -->
+            <!-- =================================================
+                 SECTION HEADER
+            ================================================== -->
 
-            <div class="section-title text-center">
+            <header class="section-title">
 
                 <p class="small-title">
                     MY WORK
                 </p>
 
+
                 <h1>
                     My <span>Projects</span>
                 </h1>
 
-                <p class="title-line"></p>
+
+                <div class="title-line"></div>
+
 
                 <p class="section-description">
 
-                    A collection of projects that showcase my
-                    skills in web development, Python, Django,
-                    databases and Machine Learning.
+                    A collection of projects that demonstrate my
+                    experience in Full Stack Web Development,
+                    Python, Django, databases and Machine Learning.
 
                 </p>
 
-            </div>
+            </header>
 
 
 
-            <!-- ================= PROJECT CARDS ================= -->
+            <!-- =================================================
+                 PROJECT GRID
+            ================================================== -->
 
             <div class="row g-4">
 
 
-
-                <!-- PROJECT 1 -->
+                <!-- =================================================
+                     PROJECT 01
+                ================================================== -->
 
                 <div class="col-lg-4 col-md-6">
 
-                    <div class="project-card">
+                    <article class="project-card">
 
 
-                        <!-- PROJECT IMAGE -->
+                        <!-- IMAGE -->
 
                         <div class="project-image task-project">
 
                             <i class="bi bi-kanban"></i>
+
 
                             <span class="project-number">
                                 01
@@ -535,8 +1263,7 @@
                         </div>
 
 
-
-                        <!-- PROJECT CONTENT -->
+                        <!-- CONTENT -->
 
                         <div class="project-content">
 
@@ -555,12 +1282,11 @@
 
                                 A web-based task management
                                 application developed using
-                                Python and Django for managing
-                                employees, assigning tasks and
-                                tracking task status.
+                                Python and Django to manage
+                                employees, assign tasks and
+                                track task progress.
 
                             </p>
-
 
 
                             <!-- FEATURES -->
@@ -568,22 +1294,21 @@
                             <ul class="project-features">
 
                                 <li>
-                                    <i class="bi bi-check-circle"></i>
+                                    <i class="bi bi-check-circle-fill"></i>
                                     Employee Management
                                 </li>
 
                                 <li>
-                                    <i class="bi bi-check-circle"></i>
+                                    <i class="bi bi-check-circle-fill"></i>
                                     Task Assignment
                                 </li>
 
                                 <li>
-                                    <i class="bi bi-check-circle"></i>
+                                    <i class="bi bi-check-circle-fill"></i>
                                     Task Status Tracking
                                 </li>
 
                             </ul>
-
 
 
                             <!-- TECHNOLOGIES -->
@@ -591,47 +1316,51 @@
                             <div class="tech-tags">
 
                                 <span>Python</span>
-
                                 <span>Django</span>
-
-                                <span>HTML</span>
-
-                                <span>CSS</span>
-
+                                <span>HTML5</span>
+                                <span>CSS3</span>
                                 <span>Bootstrap</span>
-
                                 <span>MySQL</span>
 
                             </div>
 
 
+                            <!-- BUTTON -->
 
-                            <!-- BUTTONS -->
-
-                            <a href="task.html" class="btn btn-outline-light">
+                            <a href="task.html" class="project-btn">
 
                                 <i class="bi bi-eye"></i>
+
                                 View Project
 
+                                <i class="bi bi-arrow-up-right"></i>
+
                             </a>
+
+
                         </div>
-                    </div>
+
+                    </article>
+
                 </div>
 
 
 
-                <!-- PROJECT 2 -->
+                <!-- =================================================
+                     PROJECT 02
+                ================================================== -->
 
                 <div class="col-lg-4 col-md-6">
 
-                    <div class="project-card">
+                    <article class="project-card">
 
 
-                        <!-- PROJECT IMAGE -->
+                        <!-- IMAGE -->
 
                         <div class="project-image ecommerce-project">
 
                             <i class="bi bi-cart3"></i>
+
 
                             <span class="project-number">
                                 02
@@ -640,14 +1369,13 @@
                         </div>
 
 
-
-                        <!-- PROJECT CONTENT -->
+                        <!-- CONTENT -->
 
                         <div class="project-content">
 
 
                             <span class="project-category">
-                                WEB DEVELOPMENT
+                                FULL STACK WEB
                             </span>
 
 
@@ -658,13 +1386,12 @@
 
                             <p>
 
-                                An online shopping website
-                                developed to provide users with
-                                product browsing, cart management
-                                and order-related functionality.
+                                An online shopping application
+                                designed with product browsing,
+                                cart management and
+                                order-related functionality.
 
                             </p>
-
 
 
                             <!-- FEATURES -->
@@ -672,74 +1399,73 @@
                             <ul class="project-features">
 
                                 <li>
-                                    <i class="bi bi-check-circle"></i>
+                                    <i class="bi bi-check-circle-fill"></i>
                                     Product Management
                                 </li>
 
                                 <li>
-                                    <i class="bi bi-check-circle"></i>
+                                    <i class="bi bi-check-circle-fill"></i>
                                     Shopping Cart
                                 </li>
 
                                 <li>
-                                    <i class="bi bi-check-circle"></i>
+                                    <i class="bi bi-check-circle-fill"></i>
                                     User Interface
                                 </li>
 
                             </ul>
 
 
-
                             <!-- TECHNOLOGIES -->
 
                             <div class="tech-tags">
 
-                                <span>HTML</span>
-
-                                <span>CSS</span>
-
+                                <span>HTML5</span>
+                                <span>CSS3</span>
                                 <span>JavaScript</span>
-
                                 <span>Python</span>
-
                                 <span>Django</span>
-
                                 <span>MySQL</span>
 
                             </div>
 
 
+                            <!-- BUTTON -->
 
-                            <!-- BUTTONS -->
-
-                            <a href="ecommerc.html" class="btn btn-outline-light">
+                            <a href="ecommerc.html" class="project-btn">
 
                                 <i class="bi bi-eye"></i>
+
                                 View Project
+
+                                <i class="bi bi-arrow-up-right"></i>
 
                             </a>
 
 
                         </div>
 
-                    </div>
+                    </article>
 
                 </div>
 
 
 
-                <!-- PROJECT 3 -->
+                <!-- =================================================
+                     PROJECT 03
+                ================================================== -->
 
                 <div class="col-lg-4 col-md-6">
 
-                    <div class="project-card">
+                    <article class="project-card">
 
 
-                        <!-- PROJECT IMAGE -->
+                        <!-- IMAGE -->
 
                         <div class="project-image ml-project">
 
                             <i class="bi bi-robot"></i>
+
 
                             <span class="project-number">
                                 03
@@ -748,8 +1474,7 @@
                         </div>
 
 
-
-                        <!-- PROJECT CONTENT -->
+                        <!-- CONTENT -->
 
                         <div class="project-content">
 
@@ -766,13 +1491,12 @@
 
                             <p>
 
-                                A Machine Learning application
+                                A Machine Learning project
                                 designed to classify emails as
-                                spam or non-spam using machine
-                                learning classification algorithms.
+                                spam or legitimate using
+                                classification algorithms.
 
                             </p>
-
 
 
                             <!-- FEATURES -->
@@ -780,22 +1504,21 @@
                             <ul class="project-features">
 
                                 <li>
-                                    <i class="bi bi-check-circle"></i>
+                                    <i class="bi bi-check-circle-fill"></i>
                                     Email Classification
                                 </li>
 
                                 <li>
-                                    <i class="bi bi-check-circle"></i>
+                                    <i class="bi bi-check-circle-fill"></i>
                                     Data Preprocessing
                                 </li>
 
                                 <li>
-                                    <i class="bi bi-check-circle"></i>
+                                    <i class="bi bi-check-circle-fill"></i>
                                     Model Evaluation
                                 </li>
 
                             </ul>
-
 
 
                             <!-- TECHNOLOGIES -->
@@ -803,54 +1526,55 @@
                             <div class="tech-tags">
 
                                 <span>Python</span>
-
                                 <span>Machine Learning</span>
-
                                 <span>Naive Bayes</span>
-
                                 <span>SVM</span>
-
                                 <span>Random Forest</span>
 
                             </div>
 
 
+                            <!-- BUTTON -->
 
-                            <!-- BUTTONS -->
-
-
-                            <a href="spamemail.html" class="btn btn-outline-light">
+                            <a href="spamemail.html" class="project-btn">
 
                                 <i class="bi bi-eye"></i>
+
                                 View Project
 
+                                <i class="bi bi-arrow-up-right"></i>
+
                             </a>
+
+
                         </div>
 
-
-                    </div>
+                    </article>
 
                 </div>
 
+
             </div>
-
-
 
         </div>
 
-    </section>
+    </main>
 
 
 
-    <!-- ================= FOOTER ================= -->
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
 
     <footer>
 
         <div class="container text-center">
 
+
             <h5>
                 Sandhiya P
             </h5>
+
 
             <p>
                 Junior Full Stack Web Developer
@@ -859,17 +1583,35 @@
 
             <div class="footer-social">
 
-                <a href="#">
+
+                <!-- GITHUB -->
+
+                <a href="https://github.com/sdnas161-cloud/MyProject/" target="_blank" rel="noopener noreferrer"
+                    aria-label="GitHub">
+
                     <i class="bi bi-github"></i>
+
                 </a>
 
-                <a href="#">
+
+                <!-- LINKEDIN -->
+
+                <a href="https://www.linkedin.com/in/sandhiya-pitchaimuthu-785701353/" target="_blank"
+                    rel="noopener noreferrer" aria-label="LinkedIn">
+
                     <i class="bi bi-linkedin"></i>
+
                 </a>
 
-                <a href="mailto:your-email@gmail.com">
+
+                <!-- EMAIL -->
+
+                <a href="mailto:sdnas161gmail@gmail.com" aria-label="Email">
+
                     <i class="bi bi-envelope"></i>
+
                 </a>
+
 
             </div>
 
@@ -878,8 +1620,12 @@
 
 
             <p class="copyright">
-                © 2026 Sandhiya P. All Rights Reserved.
+
+                © 2026 Sandhiya P.
+                All Rights Reserved.
+
             </p>
+
 
         </div>
 
@@ -887,571 +1633,14 @@
 
 
 
-    <!-- Bootstrap JS -->
+    <!-- =====================================================
+         BOOTSTRAP JS
+    ====================================================== -->
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
     </script>
 
 
 </body>
-
-=======
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-
-    <meta charset="UTF-8">
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Projects | Sandhiya P</title>
-
-
-    <!-- Bootstrap CSS -->
-
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-
-
-    <!-- Bootstrap Icons -->
-
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-
-
-    <!-- Custom CSS -->
-
-    <link rel="stylesheet" href="style.css">
-
-</head>
-
-
-<body>
-
-
-    <!-- ================= NAVBAR ================= -->
-
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
-
-        <div class="container">
-
-
-            <!-- LOGO -->
-
-            <a class="navbar-brand fw-bold" href="index.html">
-
-                <span class="logo">S</span>
-                Sandhiya P
-
-            </a>
-
-
-
-            <!-- MOBILE BUTTON -->
-
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu">
-
-                <span class="navbar-toggler-icon"></span>
-
-            </button>
-
-
-
-            <!-- NAVIGATION -->
-
-            <div class="collapse navbar-collapse" id="navbarMenu">
-
-                <ul class="navbar-nav ms-auto">
-
-
-                    <li class="nav-item">
-
-                        <a class="nav-link" href="index.html">
-
-                            Home
-
-                        </a>
-
-                    </li>
-
-
-                    <li class="nav-item">
-
-                        <a class="nav-link" href="about.html">
-
-                            About
-
-                        </a>
-
-                    </li>
-
-
-                    <li class="nav-item">
-
-                        <a class="nav-link" href="skills.html">
-
-                            Skills
-
-                        </a>
-
-                    </li>
-
-
-                    <li class="nav-item">
-
-                        <a class="nav-link active" href="projects.html">
-
-                            Projects
-
-                        </a>
-
-                    </li>
-
-
-                    <li class="nav-item">
-
-                        <a class="nav-link" href="contact.html">
-
-                            Contact
-
-                        </a>
-
-                    </li>
-
-
-                </ul>
-
-            </div>
-
-        </div>
-
-    </nav>
-
-
-
-    <!-- ================= PROJECTS SECTION ================= -->
-
-    <section class="projects-section">
-
-        <div class="container">
-
-
-            <!-- TITLE -->
-
-            <div class="section-title text-center">
-
-                <p class="small-title">
-                    MY WORK
-                </p>
-
-                <h1>
-                    My <span>Projects</span>
-                </h1>
-
-                <p class="title-line"></p>
-
-                <p class="section-description">
-
-                    A collection of projects that showcase my
-                    skills in web development, Python, Django,
-                    databases and Machine Learning.
-
-                </p>
-
-            </div>
-
-
-
-            <!-- ================= PROJECT CARDS ================= -->
-
-            <div class="row g-4">
-
-
-
-                <!-- PROJECT 1 -->
-
-                <div class="col-lg-4 col-md-6">
-
-                    <div class="project-card">
-
-
-                        <!-- PROJECT IMAGE -->
-
-                        <div class="project-image task-project">
-
-                            <i class="bi bi-kanban"></i>
-
-                            <span class="project-number">
-                                01
-                            </span>
-
-                        </div>
-
-
-
-                        <!-- PROJECT CONTENT -->
-
-                        <div class="project-content">
-
-
-                            <span class="project-category">
-                                WEB APPLICATION
-                            </span>
-
-
-                            <h3>
-                                Task Management System
-                            </h3>
-
-
-                            <p>
-
-                                A web-based task management
-                                application developed using
-                                Python and Django for managing
-                                employees, assigning tasks and
-                                tracking task status.
-
-                            </p>
-
-
-
-                            <!-- FEATURES -->
-
-                            <ul class="project-features">
-
-                                <li>
-                                    <i class="bi bi-check-circle"></i>
-                                    Employee Management
-                                </li>
-
-                                <li>
-                                    <i class="bi bi-check-circle"></i>
-                                    Task Assignment
-                                </li>
-
-                                <li>
-                                    <i class="bi bi-check-circle"></i>
-                                    Task Status Tracking
-                                </li>
-
-                            </ul>
-
-
-
-                            <!-- TECHNOLOGIES -->
-
-                            <div class="tech-tags">
-
-                                <span>Python</span>
-
-                                <span>Django</span>
-
-                                <span>HTML</span>
-
-                                <span>CSS</span>
-
-                                <span>Bootstrap</span>
-
-                                <span>SQL</span>
-
-                            </div>
-
-
-
-                            <!-- BUTTONS -->
-
-                            <a href="task.html" class="btn btn-outline-light">
-
-                                <i class="bi bi-eye"></i>
-                                View Project
-
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-
-
-                <!-- PROJECT 2 -->
-
-                <div class="col-lg-4 col-md-6">
-
-                    <div class="project-card">
-
-
-                        <!-- PROJECT IMAGE -->
-
-                        <div class="project-image ecommerce-project">
-
-                            <i class="bi bi-cart3"></i>
-
-                            <span class="project-number">
-                                02
-                            </span>
-
-                        </div>
-
-
-
-                        <!-- PROJECT CONTENT -->
-
-                        <div class="project-content">
-
-
-                            <span class="project-category">
-                                WEB DEVELOPMENT
-                            </span>
-
-
-                            <h3>
-                                E-Commerce Website
-                            </h3>
-
-
-                            <p>
-
-                                An online shopping website
-                                developed to provide users with
-                                product browsing, cart management
-                                and order-related functionality.
-
-                            </p>
-
-
-
-                            <!-- FEATURES -->
-
-                            <ul class="project-features">
-
-                                <li>
-                                    <i class="bi bi-check-circle"></i>
-                                    Product Management
-                                </li>
-
-                                <li>
-                                    <i class="bi bi-check-circle"></i>
-                                    Shopping Cart
-                                </li>
-
-                                <li>
-                                    <i class="bi bi-check-circle"></i>
-                                    User Interface
-                                </li>
-
-                            </ul>
-
-
-
-                            <!-- TECHNOLOGIES -->
-
-                            <div class="tech-tags">
-
-                                <span>HTML</span>
-
-                                <span>CSS</span>
-
-                                <span>JavaScript</span>
-
-                                <span>Python</span>
-
-                                <span>Django</span>
-
-                                <span>SQL</span>
-
-                            </div>
-
-
-
-                            <!-- BUTTONS -->
-
-                            <a href="ecommerc.html" class="btn btn-outline-light">
-
-                                <i class="bi bi-eye"></i>
-                                View Project
-
-                            </a>
-
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-
-                <!-- PROJECT 3 -->
-
-                <div class="col-lg-4 col-md-6">
-
-                    <div class="project-card">
-
-
-                        <!-- PROJECT IMAGE -->
-
-                        <div class="project-image ml-project">
-
-                            <i class="bi bi-robot"></i>
-
-                            <span class="project-number">
-                                03
-                            </span>
-
-                        </div>
-
-
-
-                        <!-- PROJECT CONTENT -->
-
-                        <div class="project-content">
-
-
-                            <span class="project-category">
-                                MACHINE LEARNING
-                            </span>
-
-
-                            <h3>
-                                Spam Email Detection
-                            </h3>
-
-
-                            <p>
-
-                                A Machine Learning application
-                                designed to classify emails as
-                                spam or non-spam using machine
-                                learning classification algorithms.
-
-                            </p>
-
-
-
-                            <!-- FEATURES -->
-
-                            <ul class="project-features">
-
-                                <li>
-                                    <i class="bi bi-check-circle"></i>
-                                    Email Classification
-                                </li>
-
-                                <li>
-                                    <i class="bi bi-check-circle"></i>
-                                    Data Preprocessing
-                                </li>
-
-                                <li>
-                                    <i class="bi bi-check-circle"></i>
-                                    Model Evaluation
-                                </li>
-
-                            </ul>
-
-
-
-                            <!-- TECHNOLOGIES -->
-
-                            <div class="tech-tags">
-
-                                <span>Python</span>
-
-                                <span>Machine Learning</span>
-
-                                <span>Naive Bayes</span>
-
-                                <span>SVM</span>
-
-                                <span>Random Forest</span>
-
-                            </div>
-
-
-
-                            <!-- BUTTONS -->
-
-
-                            <a href="spamemail.html" class="btn btn-outline-light">
-
-                                <i class="bi bi-eye"></i>
-                                View Project
-
-                            </a>
-                        </div>
-
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-
-        </div>
-
-
-
-
-        </div>
-
-    </section>
-
-
-
-    <!-- ================= FOOTER ================= -->
-
-    <footer>
-
-        <div class="container text-center">
-
-            <h5>
-                Sandhiya P
-            </h5>
-
-            <p>
-                Junior Full Stack Web Developer
-            </p>
-
-
-            <div class="footer-social">
-
-                <a href="#">
-                    <i class="bi bi-github"></i>
-                </a>
-
-                <a href="#">
-                    <i class="bi bi-linkedin"></i>
-                </a>
-
-                <a href="mailto:your-email@gmail.com">
-                    <i class="bi bi-envelope"></i>
-                </a>
-
-            </div>
-
-
-            <hr>
-
-
-            <p class="copyright">
-                © 2026 Sandhiya P. All Rights Reserved.
-            </p>
-
-        </div>
-
-    </footer>
-
-
-
-    <!-- Bootstrap JS -->
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
-    </script>
-
-
-</body>
-
->>>>>>> f6f8ebafea470a79459f1e9b3253174fc4c7ae03
 
 </html>

@@ -1,26 +1,35 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
 
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+        content="Spam Email Detection Machine Learning project developed by Sandhiya P using Python and Machine Learning.">
 
     <title>Spam Email Detection | Sandhiya P</title>
 
 
-    <!-- ================= BOOTSTRAP CSS ================= -->
+    <!-- =====================================================
+         BOOTSTRAP
+    ====================================================== -->
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
 
-    <!-- ================= BOOTSTRAP ICONS ================= -->
+    <!-- =====================================================
+         BOOTSTRAP ICONS
+    ====================================================== -->
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
 
-    <!-- ================= GOOGLE FONT ================= -->
+    <!-- =====================================================
+         GOOGLE FONT
+    ====================================================== -->
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
 
@@ -30,248 +39,495 @@
         rel="stylesheet">
 
 
-    <!-- ================= CUSTOM CSS ================= -->
-
+    <!-- =====================================================
+         CUSTOM CSS
+    ====================================================== -->
 
     <style>
+        /* =====================================================
+           ROOT
+        ====================================================== */
+
         :root {
             --bg: #050b16;
             --surface: #0b1424;
-            --surface-2: #101d31;
+            --surface-light: #101d31;
+
             --text: #f8fafc;
             --muted: #9aa9bd;
-            --line: rgba(255, 255, 255, .10);
+            --soft-text: #dce6f2;
+
+            --line: rgba(255, 255, 255, 0.10);
+
             --cyan: #22d3ee;
             --blue: #3b82f6;
             --violet: #8b5cf6;
             --green: #34d399;
         }
 
+
+        /* =====================================================
+           GLOBAL
+        ====================================================== */
+
         * {
-            box-sizing: border-box
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
 
         html {
-            scroll-behavior: smooth
+            scroll-behavior: smooth;
         }
 
         body {
-            margin: 0;
+            min-height: 100vh;
+
             padding-top: 76px;
+
             font-family: "Poppins", sans-serif;
+
             color: var(--text);
+
             background:
-                radial-gradient(circle at 12% 8%, rgba(34, 211, 238, .11), transparent 28%),
-                radial-gradient(circle at 88% 16%, rgba(139, 92, 246, .12), transparent 30%),
+                radial-gradient(circle at 10% 8%,
+                    rgba(34, 211, 238, 0.11),
+                    transparent 28%),
+                radial-gradient(circle at 90% 18%,
+                    rgba(139, 92, 246, 0.12),
+                    transparent 30%),
                 var(--bg);
         }
 
+        a {
+            text-decoration: none;
+        }
+
+
+        /* =====================================================
+           NAVBAR
+        ====================================================== */
+
         .navbar {
             min-height: 76px;
-            background: rgba(5, 11, 22, .82) !important;
-            backdrop-filter: blur(16px);
-            border-bottom: 1px solid var(--line);
+
+            background:
+                rgba(5, 11, 22, 0.88) !important;
+
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+
+            border-bottom:
+                1px solid var(--line);
         }
 
         .navbar-brand {
             display: flex;
             align-items: center;
             gap: 10px;
-            letter-spacing: .2px
+
+            color: #ffffff !important;
+
+            font-size: 1rem;
+            font-weight: 700;
         }
 
         .logo {
-            width: 39px;
-            height: 39px;
-            border-radius: 12px;
+            width: 40px;
+            height: 40px;
+
             display: inline-flex;
             align-items: center;
             justify-content: center;
+
+            border-radius: 12px;
+
+            color: #ffffff;
+
+            font-size: 1rem;
             font-weight: 800;
-            color: #fff;
-            background: linear-gradient(135deg, var(--cyan), var(--violet));
-            box-shadow: 0 10px 30px rgba(34, 211, 238, .18);
+
+            background:
+                linear-gradient(135deg,
+                    var(--cyan),
+                    var(--violet));
+
+            box-shadow:
+                0 10px 30px rgba(34, 211, 238, 0.18);
         }
 
         .navbar-nav {
-            gap: 7px
+            gap: 6px;
         }
 
         .nav-link {
-            color: #b8c5d6 !important;
-            padding: .55rem .9rem !important;
+            padding: 0.55rem 0.9rem !important;
+
             border-radius: 9px;
-            transition: .25s ease;
+
+            color: #b8c5d6 !important;
+
+            font-size: 0.84rem;
+            font-weight: 500;
+
+            transition: all 0.25s ease;
         }
 
         .nav-link:hover,
         .nav-link.active {
-            color: #fff !important;
-            background: rgba(255, 255, 255, .07);
+            color: #ffffff !important;
+
+            background:
+                rgba(255, 255, 255, 0.07);
         }
+
+        .navbar-toggler {
+            border-color:
+                rgba(255, 255, 255, 0.15);
+        }
+
+
+        /* =====================================================
+           SECTION
+        ====================================================== */
 
         .spam-section {
-            padding: 78px 0 90px;
-            min-height: calc(100vh - 76px)
+            min-height:
+                calc(100vh - 76px);
+
+            padding:
+                80px 0 90px;
         }
 
+
+        /* =====================================================
+           PAGE HEADER
+        ====================================================== */
+
         .project-header {
-            max-width: 760px;
-            margin: 0 auto 44px
+            max-width: 780px;
+
+            margin:
+                0 auto 48px;
+
+            text-align: center;
         }
 
         .header-label {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            color: var(--cyan);
-            font-size: .72rem;
-            font-weight: 700;
-            letter-spacing: 2.5px;
+
             margin-bottom: 14px;
+
+            color: var(--cyan);
+
+            font-size: 0.72rem;
+            font-weight: 700;
+
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
         }
 
         .project-header h1 {
             margin: 0;
-            font-size: clamp(2.25rem, 5vw, 3.7rem);
+
+            font-size:
+                clamp(2.2rem, 5vw, 3.8rem);
+
             line-height: 1.12;
+
             font-weight: 800;
         }
 
         .project-header h1 span {
-            background: linear-gradient(90deg, var(--cyan), var(--violet));
+            background:
+                linear-gradient(90deg,
+                    var(--cyan),
+                    var(--violet));
+
             -webkit-background-clip: text;
             background-clip: text;
+
             color: transparent;
         }
 
         .project-header p {
-            margin: 18px auto 0;
-            max-width: 620px;
+            max-width: 650px;
+
+            margin:
+                18px auto 0;
+
             color: var(--muted);
+
+            font-size: 0.94rem;
+
             line-height: 1.8;
         }
 
+
+        /* =====================================================
+           MAIN CARD
+        ====================================================== */
+
         .spam-card {
             overflow: hidden;
-            border: 1px solid var(--line);
+
+            border:
+                1px solid var(--line);
+
             border-radius: 26px;
-            background: linear-gradient(180deg, rgba(16, 29, 49, .96), rgba(8, 18, 32, .98));
-            box-shadow: 0 30px 80px rgba(0, 0, 0, .30);
+
+            background:
+                linear-gradient(180deg,
+                    rgba(16, 29, 49, 0.97),
+                    rgba(8, 18, 32, 0.98));
+
+            box-shadow:
+                0 30px 80px rgba(0, 0, 0, 0.30);
+
+            transition:
+                transform 0.3s ease,
+                border-color 0.3s ease;
         }
+
+        .spam-card:hover {
+            transform: translateY(-4px);
+
+            border-color:
+                rgba(34, 211, 238, 0.20);
+        }
+
+
+        /* =====================================================
+           HERO
+        ====================================================== */
 
         .spam-hero {
             position: relative;
-            min-height: 245px;
+
+            min-height: 275px;
+
             display: flex;
             align-items: center;
             justify-content: center;
+
+            overflow: hidden;
+
             background:
-                radial-gradient(circle at 50% 50%, rgba(34, 211, 238, .22), transparent 27%),
-                linear-gradient(135deg, #0c2740, #1b1640);
-            border-bottom: 1px solid var(--line);
+                radial-gradient(circle at 50% 50%,
+                    rgba(34, 211, 238, 0.22),
+                    transparent 27%),
+                linear-gradient(135deg,
+                    #09283d,
+                    #211541);
+
+            border-bottom:
+                1px solid var(--line);
         }
 
-        .spam-hero:before,
-        .spam-hero:after {
+        .spam-hero::before,
+        .spam-hero::after {
             content: "";
+
             position: absolute;
-            border: 1px solid rgba(255, 255, 255, .07);
+
+            border:
+                1px solid rgba(255, 255, 255, 0.07);
+
             border-radius: 50%;
+
             pointer-events: none;
         }
 
-        .spam-hero:before {
-            width: 270px;
-            height: 270px
+        .spam-hero::before {
+            width: 310px;
+            height: 310px;
         }
 
-        .spam-hero:after {
-            width: 190px;
-            height: 190px
+        .spam-hero::after {
+            width: 205px;
+            height: 205px;
         }
+
+
+        /* =====================================================
+           PROJECT ICON
+        ====================================================== */
 
         .spam-icon {
             position: relative;
             z-index: 2;
-            width: 108px;
-            height: 108px;
+
+            width: 118px;
+            height: 118px;
+
             display: flex;
             align-items: center;
             justify-content: center;
+
             border-radius: 30px;
-            background: rgba(255, 255, 255, .08);
-            border: 1px solid rgba(255, 255, 255, .15);
-            box-shadow: 0 20px 45px rgba(0, 0, 0, .25);
+
+            background:
+                rgba(255, 255, 255, 0.08);
+
+            border:
+                1px solid rgba(255, 255, 255, 0.16);
+
+            box-shadow:
+                0 20px 45px rgba(0, 0, 0, 0.25);
+
+            transition:
+                transform 0.3s ease;
+        }
+
+        .spam-card:hover .spam-icon {
+            transform:
+                scale(1.05) rotate(-2deg);
         }
 
         .spam-icon i {
-            font-size: 4rem;
-            color: #fff
+            color: #ffffff;
+
+            font-size: 4.3rem;
         }
+
+
+        /* =====================================================
+           BADGES
+        ====================================================== */
 
         .project-number {
             position: absolute;
-            right: 24px;
+
             top: 22px;
+            right: 24px;
+
             padding: 6px 12px;
+
             border-radius: 999px;
-            font-size: .72rem;
+
+            color: #dce6f2;
+
+            font-size: 0.72rem;
             font-weight: 700;
-            background: rgba(0, 0, 0, .25);
-            border: 1px solid rgba(255, 255, 255, .15);
+
+            background:
+                rgba(0, 0, 0, 0.25);
+
+            border:
+                1px solid rgba(255, 255, 255, 0.15);
         }
 
         .project-status {
             position: absolute;
-            left: 24px;
+
             top: 22px;
-            display: flex;
+            left: 24px;
+
+            display: inline-flex;
             align-items: center;
-            gap: 7px;
+            gap: 8px;
+
             padding: 8px 13px;
+
             border-radius: 999px;
-            color: #dffcff;
-            font-size: .72rem;
+
+            color: #e1fbff;
+
+            font-size: 0.72rem;
             font-weight: 600;
-            background: rgba(34, 211, 238, .10);
-            border: 1px solid rgba(34, 211, 238, .22);
+
+            background:
+                rgba(34, 211, 238, 0.10);
+
+            border:
+                1px solid rgba(34, 211, 238, 0.23);
         }
 
+        .project-status i {
+            color: var(--cyan);
+        }
+
+
+        /* =====================================================
+           CONTENT
+        ====================================================== */
+
         .spam-content {
-            padding: 42px
+            padding: 44px;
         }
 
         .project-category {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            color: var(--cyan);
-            font-size: .72rem;
-            font-weight: 700;
-            letter-spacing: 1.8px;
+
             margin-bottom: 10px;
+
+            color: var(--cyan);
+
+            font-size: 0.72rem;
+            font-weight: 700;
+
+            letter-spacing: 1.8px;
         }
 
         .spam-content h2 {
-            font-size: clamp(1.8rem, 4vw, 2.5rem);
-            font-weight: 750;
             margin-bottom: 14px;
+
+            font-size:
+                clamp(1.8rem, 4vw, 2.5rem);
+
+            line-height: 1.2;
+
+            font-weight: 700;
         }
 
         .project-description {
             max-width: 900px;
-            color: var(--muted);
-            line-height: 1.85;
+
             margin-bottom: 0;
+
+            color: var(--muted);
+
+            font-size: 0.92rem;
+
+            line-height: 1.85;
         }
+
+
+        /* =====================================================
+           INFO BOX
+        ====================================================== */
 
         .info-box {
             height: 100%;
-            padding: 25px;
-            border-radius: 17px;
-            background: rgba(255, 255, 255, .035);
-            border: 1px solid var(--line);
+
+            padding: 26px;
+
+            border-radius: 18px;
+
+            background:
+                rgba(255, 255, 255, 0.035);
+
+            border:
+                1px solid var(--line);
+
+            transition:
+                transform 0.25s ease,
+                border-color 0.25s ease,
+                background 0.25s ease;
+        }
+
+        .info-box:hover {
+            transform: translateY(-3px);
+
+            background:
+                rgba(255, 255, 255, 0.045);
+
+            border-color:
+                rgba(34, 211, 238, 0.20);
         }
 
         .info-box h4,
@@ -279,20 +535,29 @@
             display: flex;
             align-items: center;
             gap: 10px;
-            font-size: 1rem;
-            font-weight: 700;
+
             margin-bottom: 20px;
+
+            font-size: 0.98rem;
+            font-weight: 700;
         }
 
         .info-box h4 i,
         .technology-section h4 i {
-            color: var(--cyan)
+            color: var(--cyan);
         }
+
+
+        /* =====================================================
+           FEATURE LIST
+        ====================================================== */
 
         .feature-list {
             list-style: none;
+
             padding: 0;
             margin: 0;
+
             display: grid;
             gap: 13px;
         }
@@ -301,269 +566,480 @@
             display: flex;
             align-items: center;
             gap: 10px;
-            color: #dce6f2;
-            font-size: .88rem;
+
+            color: var(--soft-text);
+
+            font-size: 0.86rem;
         }
 
         .feature-list i {
-            color: var(--green)
+            color: var(--green);
+
+            font-size: 0.95rem;
         }
+
+
+        /* =====================================================
+           ALGORITHM LIST
+        ====================================================== */
 
         .algorithm-list {
             display: grid;
-            gap: 10px
+            gap: 10px;
         }
 
-        .algorithm-list div {
-            padding: 10px 12px;
-            border-radius: 9px;
-            background: rgba(255, 255, 255, .045);
-            border: 1px solid rgba(255, 255, 255, .06);
-            color: #dce6f2;
-            font-size: .84rem;
+        .algorithm-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            padding: 11px 13px;
+
+            border-radius: 10px;
+
+            color: var(--soft-text);
+
+            font-size: 0.84rem;
+
+            background:
+                rgba(255, 255, 255, 0.045);
+
+            border:
+                1px solid rgba(255, 255, 255, 0.06);
+
+            transition:
+                transform 0.2s ease,
+                border-color 0.2s ease;
         }
+
+        .algorithm-item:hover {
+            transform: translateX(3px);
+
+            border-color:
+                rgba(34, 211, 238, 0.20);
+        }
+
+        .algorithm-item i {
+            color: var(--cyan);
+        }
+
+
+        /* =====================================================
+           PROJECT INFORMATION
+        ====================================================== */
 
         .project-information {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            border: 1px solid var(--line);
-            border-radius: 17px;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
             overflow: hidden;
-            background: rgba(255, 255, 255, .025);
+
+            border:
+                1px solid var(--line);
+
+            border-radius: 18px;
+
+            background:
+                rgba(255, 255, 255, 0.025);
         }
 
         .project-information>div {
-            min-height: 100px;
-            padding: 19px;
+            min-height: 105px;
+
+            padding: 20px;
+
             display: flex;
             flex-direction: column;
             justify-content: center;
-            border-right: 1px solid var(--line);
+
+            border-right:
+                1px solid var(--line);
         }
 
         .project-information>div:last-child {
-            border-right: 0
+            border-right: 0;
         }
 
         .project-information span {
-            color: #8190a5;
-            font-size: .72rem;
             margin-bottom: 6px;
+
+            color: #8190a5;
+
+            font-size: 0.72rem;
         }
 
         .project-information strong {
-            font-size: .84rem;
-            color: #f3f7fb
+            color: #f3f7fb;
+
+            font-size: 0.84rem;
+            font-weight: 600;
         }
 
+
+        /* =====================================================
+           TECHNOLOGIES
+        ====================================================== */
+
         .technology-section {
-            padding-top: 31px
+            padding-top: 34px;
         }
 
         .technology-list {
             display: flex;
             flex-wrap: wrap;
-            gap: 9px
+            gap: 9px;
         }
 
         .technology-list span {
-            padding: 8px 12px;
+            padding: 8px 13px;
+
             border-radius: 8px;
-            color: #dce6f2;
-            font-size: .74rem;
+
+            color: var(--soft-text);
+
+            font-size: 0.74rem;
             font-weight: 600;
-            background: rgba(34, 211, 238, .055);
-            border: 1px solid rgba(34, 211, 238, .15);
+
+            background:
+                rgba(34, 211, 238, 0.055);
+
+            border:
+                1px solid rgba(34, 211, 238, 0.15);
+
+            transition:
+                transform 0.2s ease,
+                background 0.2s ease;
         }
+
+        .technology-list span:hover {
+            transform: translateY(-2px);
+
+            background:
+                rgba(34, 211, 238, 0.10);
+        }
+
+
+        /* =====================================================
+           BUTTONS
+        ====================================================== */
 
         .action-buttons {
             display: flex;
             flex-wrap: wrap;
             gap: 11px;
+
             margin-top: 34px;
         }
 
         .action-btn {
-            min-height: 47px;
+            min-height: 48px;
+
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
-            padding: 11px 17px;
+            gap: 9px;
+
+            padding: 11px 18px;
+
             border-radius: 10px;
-            text-decoration: none;
-            font-size: .82rem;
+
+            font-size: 0.82rem;
             font-weight: 600;
-            transition: .25s ease;
-        }
 
-        .github-btn {
-            color: #fff;
-            background: #171f2d;
-            border: 1px solid rgba(255, 255, 255, .13);
-        }
-
-        .live-btn {
-            color: #06131c;
-            background: linear-gradient(135deg, var(--cyan), #60a5fa);
-            border: 1px solid transparent;
-        }
-
-        .back-btn {
-            color: #cbd5e1;
-            background: transparent;
-            border: 1px solid var(--line);
+            transition:
+                transform 0.25s ease,
+                box-shadow 0.25s ease,
+                background 0.25s ease;
         }
 
         .action-btn:hover {
             transform: translateY(-3px);
-            color: #fff
+        }
+
+
+        /* GitHub */
+
+        .github-btn {
+            color: #ffffff;
+
+            background:
+                #171f2d;
+
+            border:
+                1px solid rgba(255, 255, 255, 0.13);
+        }
+
+        .github-btn:hover {
+            color: #ffffff;
+
+            background:
+                #202b3d;
+
+            box-shadow:
+                0 10px 25px rgba(0, 0, 0, 0.20);
+        }
+
+
+        /* Live Demo */
+
+        .live-btn {
+            color: #06131c;
+
+            background:
+                linear-gradient(135deg,
+                    var(--cyan),
+                    #60a5fa);
+
+            border: none;
         }
 
         .live-btn:hover {
             color: #06131c;
-            box-shadow: 0 12px 28px rgba(34, 211, 238, .18)
+
+            box-shadow:
+                0 12px 28px rgba(34, 211, 238, 0.18);
         }
 
+
+        /* Back */
+
+        .back-btn {
+            color: #cbd5e1;
+
+            background: transparent;
+
+            border:
+                1px solid var(--line);
+        }
+
+        .back-btn:hover {
+            color: #ffffff;
+
+            background:
+                rgba(255, 255, 255, 0.05);
+        }
+
+
+        /* =====================================================
+           FOOTER
+        ====================================================== */
+
         .project-footer {
-            padding: 35px 0 25px;
-            border-top: 1px solid var(--line);
-            background: #030812;
+            padding: 40px 0 26px;
+
+            background:
+                #030812;
+
+            border-top:
+                1px solid var(--line);
         }
 
         .project-footer h5 {
+            margin-bottom: 7px;
+
             font-weight: 700;
-            margin-bottom: 6px
         }
 
         .project-footer p {
+            margin-bottom: 0;
+
             color: var(--muted);
-            font-size: .85rem
+
+            font-size: 0.84rem;
         }
 
         .project-footer .copyright {
-            font-size: .75rem;
-            margin: 18px 0 0
+            margin-top: 18px;
+
+            font-size: 0.74rem;
         }
 
-        @media(max-width:991.98px) {
+
+        /* =====================================================
+           TABLET
+        ====================================================== */
+
+        @media (max-width: 991.98px) {
+
             .project-information {
-                grid-template-columns: repeat(2, 1fr)
+                grid-template-columns:
+                    repeat(2, 1fr);
             }
 
             .project-information>div:nth-child(2) {
-                border-right: 0
+                border-right: 0;
             }
 
             .project-information>div:nth-child(-n+2) {
-                border-bottom: 1px solid var(--line)
+                border-bottom:
+                    1px solid var(--line);
             }
+
         }
 
-        @media(max-width:767.98px) {
+
+        /* =====================================================
+           MOBILE
+        ====================================================== */
+
+        @media (max-width: 767.98px) {
+
             body {
-                padding-top: 68px
+                padding-top: 68px;
             }
 
             .navbar {
-                min-height: 68px
+                min-height: 68px;
             }
 
             .spam-section {
-                padding: 58px 0 65px
+                padding: 58px 0 65px;
             }
 
             .project-header {
-                margin-bottom: 32px
+                margin-bottom: 32px;
+            }
+
+            .project-header p {
+                font-size: 0.86rem;
             }
 
             .spam-hero {
-                min-height: 210px
+                min-height: 220px;
             }
 
             .spam-icon {
-                width: 90px;
-                height: 90px;
-                border-radius: 25px
+                width: 92px;
+                height: 92px;
+
+                border-radius: 24px;
             }
 
             .spam-icon i {
-                font-size: 3.3rem
+                font-size: 3.2rem;
             }
 
             .project-status {
+                top: 15px;
                 left: 15px;
-                top: 15px
+
+                padding: 7px 10px;
+
+                font-size: 0.65rem;
             }
 
             .project-number {
+                top: 15px;
                 right: 15px;
-                top: 15px
+
+                padding: 5px 10px;
+
+                font-size: 0.65rem;
             }
 
             .spam-content {
-                padding: 27px 22px
+                padding: 28px 22px;
+            }
+
+            .info-box {
+                padding: 22px;
             }
 
             .project-information {
-                grid-template-columns: 1fr
+                grid-template-columns: 1fr;
             }
 
             .project-information>div {
+                min-height: 90px;
+
                 border-right: 0 !important;
-                border-bottom: 1px solid var(--line) !important
+
+                border-bottom:
+                    1px solid var(--line) !important;
             }
 
             .project-information>div:last-child {
-                border-bottom: 0 !important
+                border-bottom: 0 !important;
             }
 
             .action-buttons {
-                flex-direction: column
+                flex-direction: column;
+
+                gap: 10px;
             }
 
             .action-btn {
-                width: 100%
+                width: 100%;
             }
+
+        }
+
+
+        /* =====================================================
+           SMALL MOBILE
+        ====================================================== */
+
+        @media (max-width: 420px) {
+
+            .project-header h1 {
+                font-size: 2rem;
+            }
+
+            .spam-hero {
+                min-height: 205px;
+            }
+
+            .spam-content {
+                padding: 25px 18px;
+            }
+
+            .info-box {
+                padding: 20px;
+            }
+
         }
     </style>
 
-
 </head>
 
 
 <body>
 
 
-    <!-- ================= NAVBAR ================= -->
+    <!-- =====================================================
+         NAVBAR
+    ====================================================== -->
 
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
 
         <div class="container">
 
 
-            <!-- LOGO -->
+            <!-- BRAND -->
 
-            <a class="navbar-brand fw-bold" href="index.html">
+            <a class="navbar-brand" href="index.html">
 
                 <span class="logo">
                     S
                 </span>
 
-                Sandhiya P
+                <span>
+                    Sandhiya P
+                </span>
 
             </a>
 
 
+            <!-- MOBILE TOGGLE -->
 
-            <!-- MOBILE BUTTON -->
-
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu"
+                aria-controls="navbarMenu" aria-expanded="false" aria-label="Toggle navigation">
 
                 <span class="navbar-toggler-icon"></span>
 
             </button>
-
 
 
             <!-- NAVIGATION -->
@@ -608,7 +1084,7 @@
 
                     <li class="nav-item">
 
-                        <a class="nav-link active" href="projects.html">
+                        <a class="nav-link active" href="projects.html" aria-current="page">
 
                             Projects
 
@@ -638,265 +1114,280 @@
 
 
 
-    <!-- ================= PROJECT SECTION ================= -->
+    <!-- =====================================================
+         MAIN
+    ====================================================== -->
 
-    <section class="spam-section">
+    <main>
 
-        <div class="container">
+        <section class="spam-section">
 
+            <div class="container">
 
-            <!-- ================= HEADER ================= -->
 
-            <div class="project-header text-center">
+                <!-- =================================================
+                     HEADER
+                ================================================== -->
 
+                <div class="project-header">
 
-                <span class="header-label">
+                    <span class="header-label">
 
-                    MACHINE LEARNING PROJECT
+                        <i class="bi bi-cpu"></i>
 
-                </span>
+                        Machine Learning Project
 
+                    </span>
 
-                <h1>
 
-                    Spam Email
-                    <span>Detection</span>
+                    <h1>
 
-                </h1>
+                        Spam Email
+                        <span>Detection</span>
 
+                    </h1>
 
-                <p>
 
-                    A machine learning application designed
-                    to classify emails as spam or non-spam.
+                    <p>
 
-                </p>
+                        A machine learning application designed
+                        to classify email messages as spam or
+                        non-spam using text preprocessing and
+                        classification techniques.
 
+                    </p>
 
-            </div>
+                </div>
 
 
 
-            <!-- ================= MAIN PROJECT CARD ================= -->
+                <!-- =================================================
+                     PROJECT CARD
+                ================================================== -->
 
-            <div class="row justify-content-center">
+                <div class="row justify-content-center">
 
-                <div class="col-xl-9 col-lg-10">
+                    <div class="col-xl-10 col-lg-11">
 
+                        <article class="spam-card">
 
-                    <div class="spam-card">
 
+                            <!-- =================================================
+                                 HERO
+                            ================================================== -->
 
-                        <!-- ================= HERO ================= -->
+                            <div class="spam-hero">
 
-                        <div class="spam-hero">
 
+                                <!-- ICON -->
 
-                            <!-- AI ICON -->
+                                <div class="spam-icon" aria-hidden="true">
 
-                            <div class="spam-icon">
-
-                                <i class="bi bi-shield-check"></i>
-
-                            </div>
-
-
-                            <!-- PROJECT NUMBER -->
-
-                            <div class="project-number">
-
-                                03
-
-                            </div>
-
-
-                            <!-- PROJECT BADGE -->
-
-                            <div class="project-status">
-
-                                <i class="bi bi-robot"></i>
-
-                                Machine Learning
-
-                            </div>
-
-
-                        </div>
-
-
-
-                        <!-- ================= CONTENT ================= -->
-
-                        <div class="spam-content">
-
-
-                            <!-- CATEGORY -->
-
-                            <div class="project-category">
-
-                                <i class="bi bi-cpu"></i>
-
-                                ARTIFICIAL INTELLIGENCE
-
-                            </div>
-
-
-
-                            <!-- TITLE -->
-
-                            <h2>
-
-                                Spam Email Detection
-
-                            </h2>
-
-
-
-                            <!-- DESCRIPTION -->
-
-                            <p class="project-description">
-
-                                A Machine Learning application designed
-                                to classify emails as spam or non-spam.
-                                The project uses text preprocessing and
-                                classification algorithms to identify
-                                unwanted email messages.
-
-                            </p>
-
-
-
-                            <!-- ================= PROJECT DETAILS ================= -->
-
-                            <div class="row g-4 mt-2">
-
-
-                                <!-- FEATURES -->
-
-                                <div class="col-lg-6">
-
-                                    <div class="info-box">
-
-
-                                        <h4>
-
-                                            <i class="bi bi-check2-circle"></i>
-
-                                            Key Features
-
-                                        </h4>
-
-
-                                        <ul class="feature-list">
-
-
-                                            <li>
-
-                                                <i class="bi bi-check-circle-fill"></i>
-
-                                                Email Classification
-
-                                            </li>
-
-
-                                            <li>
-
-                                                <i class="bi bi-check-circle-fill"></i>
-
-                                                Data Preprocessing
-
-                                            </li>
-
-
-                                            <li>
-
-                                                <i class="bi bi-check-circle-fill"></i>
-
-                                                Feature Extraction
-
-                                            </li>
-
-
-                                            <li>
-
-                                                <i class="bi bi-check-circle-fill"></i>
-
-                                                Model Evaluation
-
-                                            </li>
-
-
-                                        </ul>
-
-                                    </div>
+                                    <i class="bi bi-shield-check"></i>
 
                                 </div>
 
 
+                                <!-- STATUS -->
 
-                                <!-- ALGORITHMS -->
+                                <span class="project-status">
 
-                                <div class="col-lg-6">
+                                    <i class="bi bi-robot"></i>
 
-                                    <div class="info-box">
+                                    Machine Learning
 
-
-                                        <h4>
-
-                                            <i class="bi bi-diagram-3"></i>
-
-                                            Algorithms Used
-
-                                        </h4>
+                                </span>
 
 
-                                        <div class="algorithm-list">
+                                <!-- NUMBER -->
+
+                                <span class="project-number">
+
+                                    03
+
+                                </span>
+
+                            </div>
 
 
-                                            <div>
 
-                                                <span>
+                            <!-- =================================================
+                                 CONTENT
+                            ================================================== -->
+
+                            <div class="spam-content">
+
+
+                                <!-- CATEGORY -->
+
+                                <div class="project-category">
+
+                                    <i class="bi bi-cpu"></i>
+
+                                    Artificial Intelligence
+
+                                </div>
+
+
+                                <!-- TITLE -->
+
+                                <h2>
+
+                                    Spam Email Detection
+
+                                </h2>
+
+
+                                <!-- DESCRIPTION -->
+
+                                <p class="project-description">
+
+                                    A Machine Learning application developed
+                                    to classify email messages as spam or
+                                    non-spam. The project uses text
+                                    preprocessing, feature extraction and
+                                    multiple classification algorithms to
+                                    identify unwanted email messages.
+
+                                </p>
+
+
+
+                                <!-- =================================================
+                                     FEATURES + ALGORITHMS
+                                ================================================== -->
+
+                                <div class="row g-4 mt-2">
+
+
+                                    <!-- FEATURES -->
+
+                                    <div class="col-lg-6">
+
+                                        <div class="info-box">
+
+
+                                            <h4>
+
+                                                <i class="bi bi-check2-circle"></i>
+
+                                                Key Features
+
+                                            </h4>
+
+
+                                            <ul class="feature-list">
+
+
+                                                <li>
+
+                                                    <i class="bi bi-check-circle-fill"></i>
+
+                                                    Email Classification
+
+                                                </li>
+
+
+                                                <li>
+
+                                                    <i class="bi bi-check-circle-fill"></i>
+
+                                                    Data Preprocessing
+
+                                                </li>
+
+
+                                                <li>
+
+                                                    <i class="bi bi-check-circle-fill"></i>
+
+                                                    Feature Extraction
+
+                                                </li>
+
+
+                                                <li>
+
+                                                    <i class="bi bi-check-circle-fill"></i>
+
+                                                    Model Evaluation
+
+                                                </li>
+
+
+                                            </ul>
+
+                                        </div>
+
+                                    </div>
+
+
+
+                                    <!-- ALGORITHMS -->
+
+                                    <div class="col-lg-6">
+
+                                        <div class="info-box">
+
+
+                                            <h4>
+
+                                                <i class="bi bi-diagram-3"></i>
+
+                                                Algorithms Used
+
+                                            </h4>
+
+
+                                            <div class="algorithm-list">
+
+
+                                                <div class="algorithm-item">
+
+                                                    <i class="bi bi-chevron-right"></i>
+
                                                     Naive Bayes
-                                                </span>
 
-                                            </div>
+                                                </div>
 
 
-                                            <div>
+                                                <div class="algorithm-item">
 
-                                                <span>
+                                                    <i class="bi bi-chevron-right"></i>
+
                                                     Support Vector Machine
-                                                </span>
 
-                                            </div>
+                                                </div>
 
 
-                                            <div>
+                                                <div class="algorithm-item">
 
-                                                <span>
+                                                    <i class="bi bi-chevron-right"></i>
+
                                                     Random Forest
-                                                </span>
 
-                                            </div>
+                                                </div>
 
 
-                                            <div>
+                                                <div class="algorithm-item">
 
-                                                <span>
+                                                    <i class="bi bi-chevron-right"></i>
+
                                                     Decision Tree
-                                                </span>
+
+                                                </div>
+
+
+                                                <div class="algorithm-item">
+
+                                                    <i class="bi bi-chevron-right"></i>
+
+                                                    Multi-Layer Perceptron
+
+                                                </div>
+
 
                                             </div>
-
-
-                                            <div>
-
-                                                <span>
-                                                    MLP
-                                                </span>
-
-                                            </div>
-
 
                                         </div>
 
@@ -905,201 +1396,191 @@
                                 </div>
 
 
-                            </div>
+
+                                <!-- =================================================
+                                     PROJECT INFORMATION
+                                ================================================== -->
+
+                                <div class="project-information mt-4">
 
 
+                                    <div>
 
-                            <!-- ================= PROJECT INFORMATION ================= -->
+                                        <span>
+                                            Project Type
+                                        </span>
 
-                            <div class="project-information mt-4">
+                                        <strong>
+                                            Machine Learning
+                                        </strong>
 
-
-                                <div>
-
-                                    <span>
-                                        Project Type
-                                    </span>
-
-                                    <strong>
-                                        Machine Learning
-                                    </strong>
-
-                                </div>
+                                    </div>
 
 
-                                <div>
+                                    <div>
 
-                                    <span>
-                                        Language
-                                    </span>
+                                        <span>
+                                            Programming Language
+                                        </span>
 
-                                    <strong>
-                                        Python
-                                    </strong>
+                                        <strong>
+                                            Python
+                                        </strong>
 
-                                </div>
-
-
-                                <div>
-
-                                    <span>
-                                        Classification
-                                    </span>
-
-                                    <strong>
-                                        Spam / Non-Spam
-                                    </strong>
-
-                                </div>
+                                    </div>
 
 
-                                <div>
+                                    <div>
 
-                                    <span>
-                                        Optimization
-                                    </span>
+                                        <span>
+                                            Classification
+                                        </span>
 
-                                    <strong>
-                                        Genetic Algorithm
-                                    </strong>
+                                        <strong>
+                                            Spam / Non-Spam
+                                        </strong>
 
-                                </div>
-
-
-                            </div>
+                                    </div>
 
 
+                                    <div>
 
-                            <!-- ================= TECHNOLOGIES ================= -->
+                                        <span>
+                                            Optimization
+                                        </span>
 
-                            <div class="technology-section">
+                                        <strong>
+                                            Genetic Algorithm
+                                        </strong>
 
-
-                                <h4>
-
-                                    <i class="bi bi-tools"></i>
-
-                                    Technologies & Tools
-
-                                </h4>
-
-
-                                <div class="technology-list">
-
-
-                                    <span>
-                                        Python
-                                    </span>
-
-
-                                    <span>
-                                        Machine Learning
-                                    </span>
-
-
-                                    <span>
-                                        Naive Bayes
-                                    </span>
-
-
-                                    <span>
-                                        SVM
-                                    </span>
-
-
-                                    <span>
-                                        Random Forest
-                                    </span>
-
-
-                                    <span>
-                                        Decision Tree
-                                    </span>
-
-
-                                    <span>
-                                        MLP
-                                    </span>
-
-
-                                    <span>
-                                        Genetic Algorithm
-                                    </span>
+                                    </div>
 
 
                                 </div>
 
-                            </div>
+
+
+                                <!-- =================================================
+                                     TECHNOLOGIES
+                                ================================================== -->
+
+                                <div class="technology-section">
+
+
+                                    <h4>
+
+                                        <i class="bi bi-tools"></i>
+
+                                        Technologies & Tools
+
+                                    </h4>
+
+
+                                    <div class="technology-list">
+
+
+                                        <span>
+                                            Python
+                                        </span>
+
+
+                                        <span>
+                                            Machine Learning
+                                        </span>
+
+
+                                        <span>
+                                            Naive Bayes
+                                        </span>
+
+
+                                        <span>
+                                            SVM
+                                        </span>
+
+
+                                        <span>
+                                            Random Forest
+                                        </span>
+
+
+                                        <span>
+                                            Decision Tree
+                                        </span>
+
+
+                                        <span>
+                                            MLP
+                                        </span>
+
+
+                                        <span>
+                                            Genetic Algorithm
+                                        </span>
+
+
+                                    </div>
+
+                                </div>
 
 
 
-                            <!-- ================= BUTTONS ================= -->
+                                <!-- =================================================
+                                     ACTION BUTTONS
+                                ================================================== -->
 
-                            <div class="action-buttons">
-
-
-                                <!-- GITHUB -->
-
-                                <a href="http://127.0.0.1:5000/" target="_blank" rel="noopener noreferrer"
-                                    class="action-btn github-btn">
+                                <div class="action-buttons">
 
 
-                                    <i class="bi bi-github"></i>
+                                    <!-- GITHUB -->
+
+                                    <a href="http://127.0.0.1:5000" target="_blank" rel="noopener noreferrer"
+                                        class="action-btn github-btn">
+
+                                        <i class="bi bi-github"></i>
+
+                                        <span>
+                                            View GitHub
+                                        </span>
+
+                                        <i class="bi bi-arrow-up-right"></i>
+
+                                    </a>
 
 
-                                    <span>
-                                        View GitHub
-                                    </span>
+                                    <!-- LIVE DEMO -->
+
+                                    <a href=" http://127.0.0.1:5000" target="_blank" rel="noopener noreferrer"
+                                        class="action-btn live-btn">
+
+                                        <i class="bi bi-globe2"></i>
+
+                                        <span>
+                                            Live Demo
+                                        </span>
+
+                                        <i class="bi bi-arrow-up-right"></i>
+
+                                    </a>
 
 
-                                    <i class="bi bi-arrow-up-right"></i>
+                                    <!-- BACK -->
 
+                                    <a href="projects.html" class="action-btn back-btn">
 
-                                </a>
+                                        <i class="bi bi-arrow-left"></i>
 
+                                        <span>
+                                            Back to Projects
+                                        </span>
 
+                                    </a>
 
-                                <!-- LIVE DEMO -->
-
-                                <a href="http://127.0.0.1:5000/" target="_blank" rel="noopener noreferrer"
-                                    class="action-btn live-btn">
-
-
-                                    <i class="bi bi-globe2"></i>
-
-
-                                    <span>
-                                        Live Demo
-                                    </span>
-
-
-                                    <i class="bi bi-arrow-up-right"></i>
-
-
-                                </a>
-
-
-
-                                <!-- BACK -->
-
-                                <a href="projects.html" class="action-btn back-btn">
-
-
-                                    <i class="bi bi-arrow-left"></i>
-
-
-                                    <span>
-                                        Back to Projects
-                                    </span>
-
-
-                                </a>
-
+                                </div>
 
                             </div>
 
-
-                        </div>
+                        </article>
 
                     </div>
 
@@ -1107,28 +1588,27 @@
 
             </div>
 
-        </div>
+        </section>
 
-    </section>
+    </main>
 
 
 
-    <!-- ================= FOOTER ================= -->
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
 
     <footer class="project-footer">
 
         <div class="container text-center">
 
-
             <h5>
                 Sandhiya P
             </h5>
 
-
             <p>
                 Junior Full Stack Web Developer
             </p>
-
 
             <p class="copyright">
 
@@ -1137,679 +1617,19 @@
 
             </p>
 
-
         </div>
 
     </footer>
 
 
 
-    <!-- ================= BOOTSTRAP JS ================= -->
+    <!-- =====================================================
+         BOOTSTRAP JS
+    ====================================================== -->
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
     </script>
 
 </body>
-
-=======
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-
-    <meta charset="UTF-8">
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Spam Email Detection | Sandhiya P</title>
-
-
-    <!-- ================= BOOTSTRAP CSS ================= -->
-
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-
-
-    <!-- ================= BOOTSTRAP ICONS ================= -->
-
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-
-
-    <!-- ================= GOOGLE FONT ================= -->
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
-        rel="stylesheet">
-
-
-    <!-- ================= CUSTOM CSS ================= -->
-
-    <link rel="stylesheet" href="style.css">
-
-</head>
-
-
-<body>
-
-
-    <!-- ================= NAVBAR ================= -->
-
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
-
-        <div class="container">
-
-
-            <!-- LOGO -->
-
-            <a class="navbar-brand fw-bold" href="index.html">
-
-                <span class="logo">
-                    S
-                </span>
-
-                Sandhiya P
-
-            </a>
-
-
-
-            <!-- MOBILE BUTTON -->
-
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu">
-
-                <span class="navbar-toggler-icon"></span>
-
-            </button>
-
-
-
-            <!-- NAVIGATION -->
-
-            <div class="collapse navbar-collapse" id="navbarMenu">
-
-                <ul class="navbar-nav ms-auto">
-
-
-                    <li class="nav-item">
-
-                        <a class="nav-link" href="index.html">
-
-                            Home
-
-                        </a>
-
-                    </li>
-
-
-                    <li class="nav-item">
-
-                        <a class="nav-link" href="about.html">
-
-                            About
-
-                        </a>
-
-                    </li>
-
-
-                    <li class="nav-item">
-
-                        <a class="nav-link" href="skills.html">
-
-                            Skills
-
-                        </a>
-
-                    </li>
-
-
-                    <li class="nav-item">
-
-                        <a class="nav-link active" href="projects.html">
-
-                            Projects
-
-                        </a>
-
-                    </li>
-
-
-                    <li class="nav-item">
-
-                        <a class="nav-link" href="contact.html">
-
-                            Contact
-
-                        </a>
-
-                    </li>
-
-
-                </ul>
-
-            </div>
-
-        </div>
-
-    </nav>
-
-
-
-    <!-- ================= PROJECT SECTION ================= -->
-
-    <section class="spam-section">
-
-        <div class="container">
-
-
-            <!-- ================= HEADER ================= -->
-
-            <div class="project-header text-center">
-
-
-                <span class="header-label">
-
-                    MACHINE LEARNING PROJECT
-
-                </span>
-
-
-                <h1>
-
-                    Spam Email
-                    <span>Detection</span>
-
-                </h1>
-
-
-                <p>
-
-                    A machine learning application designed
-                    to classify emails as spam or non-spam.
-
-                </p>
-
-
-            </div>
-
-
-
-            <!-- ================= MAIN PROJECT CARD ================= -->
-
-            <div class="row justify-content-center">
-
-                <div class="col-xl-9 col-lg-10">
-
-
-                    <div class="spam-card">
-
-
-                        <!-- ================= HERO ================= -->
-
-                        <div class="spam-hero">
-
-
-                            <!-- AI ICON -->
-
-                            <div class="spam-icon">
-
-                                <i class="bi bi-shield-check"></i>
-
-                            </div>
-
-
-                            <!-- PROJECT NUMBER -->
-
-                            <div class="project-number">
-
-                                03
-
-                            </div>
-
-
-                            <!-- PROJECT BADGE -->
-
-                            <div class="project-status">
-
-                                <i class="bi bi-robot"></i>
-
-                                Machine Learning
-
-                            </div>
-
-
-                        </div>
-
-
-
-                        <!-- ================= CONTENT ================= -->
-
-                        <div class="spam-content">
-
-
-                            <!-- CATEGORY -->
-
-                            <div class="project-category">
-
-                                <i class="bi bi-cpu"></i>
-
-                                ARTIFICIAL INTELLIGENCE
-
-                            </div>
-
-
-
-                            <!-- TITLE -->
-
-                            <h2>
-
-                                Spam Email Detection
-
-                            </h2>
-
-
-
-                            <!-- DESCRIPTION -->
-
-                            <p class="project-description">
-
-                                A Machine Learning application designed
-                                to classify emails as spam or non-spam.
-                                The project uses text preprocessing and
-                                classification algorithms to identify
-                                unwanted email messages.
-
-                            </p>
-
-
-
-                            <!-- ================= PROJECT DETAILS ================= -->
-
-                            <div class="row g-4 mt-2">
-
-
-                                <!-- FEATURES -->
-
-                                <div class="col-lg-6">
-
-                                    <div class="info-box">
-
-
-                                        <h4>
-
-                                            <i class="bi bi-check2-circle"></i>
-
-                                            Key Features
-
-                                        </h4>
-
-
-                                        <ul class="feature-list">
-
-
-                                            <li>
-
-                                                <i class="bi bi-check-circle-fill"></i>
-
-                                                Email Classification
-
-                                            </li>
-
-
-                                            <li>
-
-                                                <i class="bi bi-check-circle-fill"></i>
-
-                                                Data Preprocessing
-
-                                            </li>
-
-
-                                            <li>
-
-                                                <i class="bi bi-check-circle-fill"></i>
-
-                                                Feature Extraction
-
-                                            </li>
-
-
-                                            <li>
-
-                                                <i class="bi bi-check-circle-fill"></i>
-
-                                                Model Evaluation
-
-                                            </li>
-
-
-                                        </ul>
-
-                                    </div>
-
-                                </div>
-
-
-
-                                <!-- ALGORITHMS -->
-
-                                <div class="col-lg-6">
-
-                                    <div class="info-box">
-
-
-                                        <h4>
-
-                                            <i class="bi bi-diagram-3"></i>
-
-                                            Algorithms Used
-
-                                        </h4>
-
-
-                                        <div class="algorithm-list">
-
-
-                                            <div>
-
-                                                <span>
-                                                    Naive Bayes
-                                                </span>
-
-                                            </div>
-
-
-                                            <div>
-
-                                                <span>
-                                                    Support Vector Machine
-                                                </span>
-
-                                            </div>
-
-
-                                            <div>
-
-                                                <span>
-                                                    Random Forest
-                                                </span>
-
-                                            </div>
-
-
-                                            <div>
-
-                                                <span>
-                                                    Decision Tree
-                                                </span>
-
-                                            </div>
-
-
-                                            <div>
-
-                                                <span>
-                                                    MLP
-                                                </span>
-
-                                            </div>
-
-
-                                        </div>
-
-                                    </div>
-
-                                </div>
-
-
-                            </div>
-
-
-
-                            <!-- ================= PROJECT INFORMATION ================= -->
-
-                            <div class="project-information mt-4">
-
-
-                                <div>
-
-                                    <span>
-                                        Project Type
-                                    </span>
-
-                                    <strong>
-                                        Machine Learning
-                                    </strong>
-
-                                </div>
-
-
-                                <div>
-
-                                    <span>
-                                        Language
-                                    </span>
-
-                                    <strong>
-                                        Python
-                                    </strong>
-
-                                </div>
-
-
-                                <div>
-
-                                    <span>
-                                        Classification
-                                    </span>
-
-                                    <strong>
-                                        Spam / Non-Spam
-                                    </strong>
-
-                                </div>
-
-
-                                <div>
-
-                                    <span>
-                                        Optimization
-                                    </span>
-
-                                    <strong>
-                                        Genetic Algorithm
-                                    </strong>
-
-                                </div>
-
-
-                            </div>
-
-
-
-                            <!-- ================= TECHNOLOGIES ================= -->
-
-                            <div class="technology-section">
-
-
-                                <h4>
-
-                                    <i class="bi bi-tools"></i>
-
-                                    Technologies & Tools
-
-                                </h4>
-
-
-                                <div class="technology-list">
-
-
-                                    <span>
-                                        Python
-                                    </span>
-
-
-                                    <span>
-                                        Machine Learning
-                                    </span>
-
-
-                                    <span>
-                                        Naive Bayes
-                                    </span>
-
-
-                                    <span>
-                                        SVM
-                                    </span>
-
-
-                                    <span>
-                                        Random Forest
-                                    </span>
-
-
-                                    <span>
-                                        Decision Tree
-                                    </span>
-
-
-                                    <span>
-                                        MLP
-                                    </span>
-
-
-                                    <span>
-                                        Genetic Algorithm
-                                    </span>
-
-
-                                </div>
-
-                            </div>
-
-
-
-                            <!-- ================= BUTTONS ================= -->
-
-                            <div class="action-buttons">
-
-
-                                <!-- GITHUB -->
-
-                                <a href="YOUR_SPAM_GITHUB_URL" target="_blank" rel="noopener noreferrer"
-                                    class="action-btn github-btn">
-
-
-                                    <i class="bi bi-github"></i>
-
-
-                                    <span>
-                                        View GitHub
-                                    </span>
-
-
-                                    <i class="bi bi-arrow-up-right"></i>
-
-
-                                </a>
-
-
-
-                                <!-- LIVE DEMO -->
-
-                                <a href="YOUR_SPAM_LIVE_DEMO_URL" target="_blank" rel="noopener noreferrer"
-                                    class="action-btn live-btn">
-
-
-                                    <i class="bi bi-globe2"></i>
-
-
-                                    <span>
-                                        Live Demo
-                                    </span>
-
-
-                                    <i class="bi bi-arrow-up-right"></i>
-
-
-                                </a>
-
-
-
-                                <!-- BACK -->
-
-                                <a href="projects.html" class="action-btn back-btn">
-
-
-                                    <i class="bi bi-arrow-left"></i>
-
-
-                                    <span>
-                                        Back to Projects
-                                    </span>
-
-
-                                </a>
-
-
-                            </div>
-
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-
-    <!-- ================= FOOTER ================= -->
-
-    <footer class="project-footer">
-
-        <div class="container text-center">
-
-
-            <h5>
-                Sandhiya P
-            </h5>
-
-
-            <p>
-                Junior Full Stack Web Developer
-            </p>
-
-
-            <p class="copyright">
-
-                © 2026 Sandhiya P.
-                All Rights Reserved.
-
-            </p>
-
-
-        </div>
-
-    </footer>
-
-
-
-    <!-- ================= BOOTSTRAP JS ================= -->
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
-    </script>
-
-</body>
-
->>>>>>> f6f8ebafea470a79459f1e9b3253174fc4c7ae03
 
 </html>
